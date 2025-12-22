@@ -13,16 +13,18 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme') as 'light' | 'dark';
+      if (stored) return stored;
+    }
+    return 'light';
+  });
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as 'light' | 'dark';
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (stored) setTheme(stored);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    const root = document.documentElement;
+    root.setAttribute('data-theme', theme);
+    root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
     localStorage.setItem('theme', theme);
   }, [theme]);
 

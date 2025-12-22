@@ -38,7 +38,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-base">
+    <nav className="sticky top-0 z-50 bg-background-secondary border-b border-base">
       <div className="flex items-center justify-between px-6 md:px-20 h-full relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 hover:scale-105 transition-transform">
