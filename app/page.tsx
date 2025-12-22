@@ -1,63 +1,92 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import ProfileImg from '@/public/profile.jpg';
+import { HERO_CONTENT } from '@/constants/hero';
 
 export default function Hero() {
+  const { name, title, description, cta } = HERO_CONTENT;
+
   return (
-    <section className="p-6 md:p-20 bg-linear-to-b from-black/20 to-black/40 text-black dark:text-white">
-      <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+    <section className="min-h-[90vh] flex items-center bg-background-secondary text-foreground">
+      <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6">
         {/* Profile Image */}
         <motion.div
-          initial={{ opacity: 0, x: -25 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
           className="flex justify-center"
         >
-          <div className="w-35 h-35 md:w-70 md:h-70 rounded-full overflow-hidden shadow-xl ring-2 md:ring-4 ring-white/60 ">
-            <Image src={ProfileImg} alt="Profile" className="object-cover w-full h-full" priority />
+          <div
+            className="
+              w-36 h-36 md:w-72 md:h-72
+              rounded-full overflow-hidden
+              ring-2 md:ring-4 ring-accent/40
+              shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+            "
+          >
+            <Image
+              src={ProfileImg}
+              alt={`${name} profile picture`}
+              className="object-cover w-full h-full"
+              priority
+            />
           </div>
         </motion.div>
 
         {/* Hero Text */}
         <motion.div
-          initial={{ opacity: 0, x: 25 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center md:text-left"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center md:text-left space-y-5"
         >
-          <h1 className="text-3xl md:text-6xl font-bold mb-4 leading-tight ">
-            Hi, I am <span className="text-blue-500">Omar</span>
+          <h1 className="text-3xl md:text-6xl font-bold leading-tight">
+            Hi, I am <span className="text-accent">{name}</span>
           </h1>
 
-          <h2 className="text-lg md:text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Front-End Developer
-          </h2>
-          <p className="text-base md:text-lg max-w-md mb-8 leading-relaxed">
-            I build fast, modern, and visually pleasing web experiences using cutting-edge
-            technologies.
+          <h2 className="text-lg md:text-2xl font-semibold text-muted">{title}</h2>
+
+          <p className="text-base md:text-lg max-w-md leading-relaxed text-muted">
+            {description}{' '}
+            <span className="text-accent/80 font-medium">
+              focused on performance and usability.
+            </span>
           </p>
 
           {/* Buttons */}
-          <div className="flex gap-4 justify-center md:justify-start">
-            <motion.a
+          <div className="flex gap-4 justify-center md:justify-start pt-3">
+            <Link
               href="/projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="text-sm md:text-base py-3 md:py-3 px-4 md:px-6 bg-blue-800 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition-all"
+              className="
+                px-6 py-3
+                rounded-lg
+                bg-accent text-white
+                font-medium
+                shadow-sm
+                hover:opacity-90
+                transition
+              "
             >
-              View Projects
-            </motion.a>
+              {cta.projects}
+            </Link>
 
-            <motion.a
+            <a
               href="/cv.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="text-sm md:text-base px-6 py-3 rounded-lg border border-gray-500 text-gray-300 hover:bg-gray-700 transition-all font-medium"
+              className="
+                px-6 py-3
+                rounded-lg
+                border border-base
+                text-foreground
+                hover:bg-background
+                transition
+                font-medium
+              "
             >
-              Download CV
-            </motion.a>
+              {cta.cv}
+            </a>
           </div>
         </motion.div>
       </div>

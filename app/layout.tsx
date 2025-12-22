@@ -1,27 +1,37 @@
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import { ThemeProvider } from '@/components/provider';
-import { Inter } from 'next/font/google';
+import Navbar from '@/components/layout/Navbar';
+import { ThemeProvider } from '@/context/ThemeContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+export const metadata: Metadata = {
+  title: 'Layout Test',
+  description: 'Testing layouts in Next.js 13',
+};
+
+export default function RootLayout({ 
+  children, 
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <ThemeProvider>
-        <body
-          className={`
-          ${inter.className}
-          bg-white dark:bg-black
-          text-black dark:text-white
-          transition-colors duration-300
-          min-h-screen
-        `}
-        >
-          <Navbar />
-          <main className="pt-24">{children}</main>
+    <>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <ThemeProvider>
+            <Navbar />
+            {children}
+          </ThemeProvider>
         </body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </>
   );
 }
