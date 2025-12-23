@@ -22,7 +22,7 @@ const ContactInfo = () => {
           const Icon = info.icon;
           return (
             <div key={idx} className="flex items-start space-x-4">
-              <div className="p-3 rounded-lg bg-accent/20 flex items-center justify-center shadow-md">
+              <div className="p-3 rounded-lg bg-accent/20 flex items-center justify-center bg-background-secondary shadow-md">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <div>
