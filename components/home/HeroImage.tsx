@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Avatar, AvatarFallback } from '@/components/ui/Avatar';
 import ProfileImg from '@/public/profile.jpg';
 
 const HeroImage = ({ name }: { name: string }) => {
@@ -12,14 +13,16 @@ const HeroImage = ({ name }: { name: string }) => {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="flex justify-center"
     >
-      <div className="w-36 h-36 md:w-72 md:h-72 rounded-full overflow-hidden ring-2 md:ring-4 ring-accent/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+      <Avatar className="w-36 h-36 md:w-72 md:h-72 ring-2 md:ring-4 ring-accent/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
         <Image
           src={ProfileImg}
           alt={`${name} profile picture`}
-          className="object-cover w-full h-full"
+          fill
+          className="object-cover"
           priority
         />
-      </div>
+        <AvatarFallback>{name[0]}</AvatarFallback>
+      </Avatar>
     </motion.div>
   );
 };

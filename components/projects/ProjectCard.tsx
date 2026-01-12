@@ -1,52 +1,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardFooter } from '../ui/card';
+import { Badge } from '../ui/badge';
+import type { Project } from '@/types/project';
 
-interface ProjectCardProps {
-  project: {
-    title: string;
-    desc: string;
-    link: string;
-    tags: string[];
-  };
-  index: number;
-}
-
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+export default function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 },
-      }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: 2, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 300 }}
+      className="h-full"
     >
-      <Link href={project.link} className="block h-full">
-        <div className="h-full bg-background-secondary rounded-xl shadow-lg overflow-hidden border border-border-base transition">
-          <div className="h-48 bg-accent flex items-center justify-center">
-            <span className="text-4xl font-bold">{index + 1}</span>
-          </div>
+      <Card className="group rounded-xl border shadow-md h-full flex flex-col ">
+        {/* IMAGE WRAPPER */}
+        <div className="relative h-44 w-full overflow-hidden rounded-t-lg">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-accent mb-2">{project.title}</h3>
-            <p className="text-muted mb-4">{project.desc}</p>
+          {/* OVERLAY */}
+          <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto">
+            <Button asChild size="lg" variant="custom">
+              <Link href={`/projects/${project.slug}`}>View Project</Link>
+            </Button>
 
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-background text-muted shadow-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <Button asChild size="lg" variant="customOutline">
+              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                Live Demo
+              </Link>
+            </Button>
           </div>
         </div>
-      </Link>
+
+        {/* CONTENT */}
+        <CardContent className="px-6 pb-6 pt-4 flex-1 flex flex-col">
+          <h3 className="mb-2 text-xl font-bold text-accent">{project.title}</h3>
+          <p className="mb-4 text-sm leading-relaxed flex-1 text-muted-foreground">
+            {project.shortDescription}
+          </p>
+        </CardContent>
+        <CardFooter>
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.tags.map((tag) => (
+              <Badge key={tag} className="bg-secondary text-secondary-foreground">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </CardFooter>
+      </Card>
     </motion.div>
   );
-};
-
-export default ProjectCard;
+}

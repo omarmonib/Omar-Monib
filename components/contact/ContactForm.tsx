@@ -2,10 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import InputField from './InputField';
+
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -15,9 +24,13 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     console.log('Form submitted:', formData);
+
     setSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
+
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
@@ -29,34 +42,64 @@ const ContactForm = () => {
       className="bg-background-secondary dark:bg-background p-8 rounded-xl shadow-xl"
     >
       <div className="space-y-6">
-        <InputField label="Full Name" name="name" value={formData.name} onChange={handleChange} />
-        <InputField
-          label="Email Address"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          type="email"
-        />
-        <InputField
-          label="Your Message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          type="textarea"
-        />
+        {/* NAME */}
+        <div className="space-y-2">
+          <Label htmlFor="name">Full Name</Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
+        {/* EMAIL */}
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* MESSAGE */}
+        <div className="space-y-2">
+          <Label htmlFor="message">Your Message</Label>
+          <Textarea
+            id="message"
+            name="message"
+            placeholder="Type your message here..."
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* SUCCESS MESSAGE */}
         {submitted && (
-          <p className="text-green-500 font-medium text-center">Message sent successfully!</p>
+          <motion.p
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-green-500 font-medium text-center"
+          >
+            Message sent successfully!
+          </motion.p>
         )}
 
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="w-full bg-accent hover:bg-accent/90 text-background font-medium py-2 px-4 rounded-lg transition duration-200"
-        >
-          Send Message
-        </motion.button>
+        {/* SUBMIT BUTTON */}
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button type="submit" size="lg" className="w-full">
+            Send Message
+          </Button>
+        </motion.div>
       </div>
     </motion.form>
   );

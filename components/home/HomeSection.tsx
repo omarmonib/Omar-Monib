@@ -10,8 +10,8 @@ const HomeSection = () => {
   return (
     <section className="min-h-[90vh] flex items-center">
       <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6">
-        <HeroImage name={name} />
         <HeroContent name={name} title={title} description={description} cta={cta} />
+        <HeroImage name={name} />
       </div>
     </section>
   );

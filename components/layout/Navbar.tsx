@@ -9,6 +9,7 @@ import NavItem from '@/components/ui/NavLink';
 import ThemeSwitcher from '@/components/ui/ThemeToggle';
 import Logo from '@/components/ui/Logo';
 import { NAV_LINKS } from '@/constants/links';
+import Image from 'next/image';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -42,7 +43,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6 md:px-20 h-full relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 hover:scale-105 transition-transform">
-          <Logo className="w-10 h-10" />
+          <Logo width={40} height={40} className="w-10 h-10" />
           <span className="text-xl font-bold text-foreground">Omar</span>
         </Link>
 

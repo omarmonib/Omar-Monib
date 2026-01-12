@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 interface Props {
   name: string;
@@ -25,21 +26,29 @@ const HeroContent = ({ name, title, description, cta }: Props) => {
         Hi, I am <span className="text-accent">{name}</span>
       </h1>
 
-      <h2 className="text-lg md:text-2xl font-semibold text-muted">{title}</h2>
+      <h2 className="text-lg md:text-2xl font-semibold text-muted-foreground">{title}</h2>
 
-      <p className="text-base md:text-lg max-w-md leading-relaxed text-muted">
+      <p className="text-base md:text-lg max-w-md leading-relaxed text-muted-foreground">
         {description}{' '}
         <span className="text-accent/80 font-medium">focused on performance and usability.</span>
       </p>
 
       <div className="flex gap-4 justify-center md:justify-start pt-3">
-        <Link href="/projects" className="px-6 py-3 rounded-lg bg-accent font-medium transition">
-          {cta.projects}
-        </Link>
+        <Button
+          asChild
+          size="lg"
+          variant="custom"
+        >
+          <Link href="/projects">{cta.projects}</Link>
+        </Button>
 
-        <a href="/cv.pdf" className="px-6 py-3 rounded-lg border font-medium transition">
-          {cta.cv}
-        </a>
+        <Button
+          asChild
+          size="lg"
+          variant="customOutline"
+        >
+          <a href="/cv.pdf">{cta.cv}</a>
+        </Button>
       </div>
     </motion.div>
   );

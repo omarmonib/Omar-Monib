@@ -9,6 +9,5 @@ export const HERO_CONTENT = {
   cta: {
     projects: 'View Projects',
     cv: 'Download CV',
-
   },
 };

@@ -2,17 +2,17 @@
 
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import { PROJECTS } from '@/constants/projects';
+import { ProjectsData } from '@/constants/projects';
+import type { Project } from '@/types/project';
 
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const ProjectsGrid = () => {
+export default function ProjectsGrid() {
+  const projects = Object.values(ProjectsData) as Project[];
+
   return (
     <motion.div
       variants={container}
@@ -20,11 +20,9 @@ const ProjectsGrid = () => {
       animate="show"
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      {PROJECTS.map((project, index) => (
-        <ProjectCard key={project.title} project={project} index={index} />
+      {projects.map((project) => (
+        <ProjectCard key={project.id} project={project} />
       ))}
     </motion.div>
   );
-};
-
-export default ProjectsGrid;
+}

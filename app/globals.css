@@ -1,53 +1,157 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+@import "tw-animate-css";
+
+/* ===============================
+   ROOT VARIABLES (LIGHT MODE)
+================================ */
+
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --background-secondary: #f1f5f9;
+  --foreground: #1f2937;
+  --muted: #6b7280;
+  --muted-foreground: #6b7280;
+  --border: #d1d5db;
+
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e5e7eb;
+  --secondary-foreground: #1f2937;
+
+  --destructive: #dc2626;
+  --input: #f9fafb;
+  --ring: #4f46e5;
+}
+
+/* ===============================
+        DARK MODE 
+================================ */
+
+.dark,
+[data-theme="dark"] {
+  --background: #0f172a;
+  --background-secondary: #1e293b;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --muted-foreground: #94a3b8;
+  --border: #334155;
+
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+
+  --destructive: #f87171;
+  --input: #0f172a;
+  --ring: #6366f1;
+}
+
+/* ===============================
+      TAILWIND THEME MAPPING
+================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* ===============================
+   BASE STYLES
+================================ */
+
+html {
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===============================
+   OPTIONAL UTILITY CLASSES
+================================ */
 
 .bg-background {
   background-color: var(--background);
 }
+
 .bg-background-secondary {
   background-color: var(--background-secondary);
 }
+
 .text-foreground {
   color: var(--foreground);
 }
+
 .text-muted {
   color: var(--muted);
 }
+
 .border-base {
   border-color: var(--border);
 }
+
 .text-accent {
   color: var(--accent);
 }
+
 .bg-accent {
   background-color: var(--accent);
-}
-
-:root {
-  --background: #f9fafb; /* neutral white */
-  --background-secondary: #f1f5f9; /* subtle section bg */
-  --foreground: #020617; /* deep slate */
-  --muted: #64748b; /* slate-500 */
-  --border: #e2e8f0; /* soft border */
-  --accent: #4f46e5; /* indigo-600 */
-  --font-sans: 'Geist Sans', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
-}
-
-[data-theme='dark'] {
-  --background: #05132b; /* deep navy */
-  --background-secondary: #030f23; /* nav / cards */
-  --foreground: #eaf1fb; /* soft white */
-  --muted: #9fb0cc; /* cool muted */
-  --border: #0f2447; /* subtle divider */
-  --accent: #6366f1; /* indigo-500 */
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
 }
