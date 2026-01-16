@@ -1,136 +1,122 @@
-# 🏗️ Project Architecture Overview
-This project follows Next.js App Router with a feature-based component architecture to ensure scalability, clarity, and maintainability.
+# 🚀 My Portfolio
 
-The Home page is represented by the Hero section, and each main page (About, Projects, Contact) has its own dedicated folder and components.
+A modern and elegant personal portfolio website built with the latest web development technologies.
 
----
+## 🌟 Features
 
-## 📁 Folder Structure Explained
+- Modern and interactive user interface
+- Fully responsive design for all devices
+- Light/Dark mode support
+- Multiple pages (Home, About, Projects, Contact)
+- Fast loading and high performance
+
+## 🛠️ Tech Stack
+
+- **Next.js 13+** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Icons** for beautiful icons
+- **ESLint** and **Prettier** for code quality
+
+## 📂 Project Structure
+
 ```
 app/
-├─ layout.tsx        # Root layout (Navbar, ThemeProvider, Fonts)
-├─ globals.css       # Global styles (Tailwind base)
-├─ page.tsx          # Home page (renders Hero/HomeSection)
-│
-├─ about/
-│  └─ page.tsx       # About page entry
-│
-├─ projects/
-│  └─ page.tsx       # Projects page entry
-│
-├─ contact/
-│  └─ page.tsx       # Contact page entry
-```
-Rule:
-Files inside app/ are routing & composition only — no UI logic.
+├─ layout.tsx        # Root layout
+├─ globals.css       # Global styles
+├─ page.tsx          # Home page
+├─ about/            # About page
+├─ projects/         # Projects page
+└─ contact/          # Contact page
 
----
-
-## 🧩 Components Architecture (Feature-Based)
-
-```
 components/
-├─ layout/
-│  └─ Navbar.tsx     # Global layout components
-│
-├─ home/
-│  ├─ HeroContent.tsx
-│  ├─ HeroImage.tsx
-│  ├─ HomeSection.tsx
-│  └─ index.ts
-│
-├─ about/
-│  ├─ AboutIntro.tsx
-│  ├─ AboutSection.tsx
-│  ├─ SkillsList.tsx
-│  └─ index.ts
-│
-├─ projects/
-│  ├─ ProjectCard.tsx
-│  ├─ ProjectsGrid.tsx
-│  ├─ ProjectsSection.tsx
-│  └─ index.ts
-│
-├─ contact/
-│  ├─ ContactForm.tsx
-│  ├─ ContactInfo.tsx
-│  ├─ ContactSection.tsx
-│  ├─ InputField.tsx
-│  └─ index.ts
-│
-├─ ui/
-│  ├─ Avatar.tsx
-│  ├─ Logo.tsx
-│  ├─ NavLink.tsx
-│  └─ ThemeToggle.tsx
+├─ layout/           # Layout components
+├─ home/             # Home page components
+├─ about/            # About page components
+├─ projects/         # Projects page components
+├─ contact/          # Contact page components
+└─ ui/               # Reusable UI components
 
+public/              # Static assets
+constants/           # Constants and text content
+context/             # React contexts
 ```
 
-### Why this structure?
+## 🚀 Getting Started
 
-* ✅ Feature-based grouping (not type-based)
+1. Clone the repository:
 
-* ✅ Easy to scale and refactor
+   ```bash
+   git clone [repository-url]
+   ```
 
-* ✅ Clear separation between:
+2. Install dependencies:
 
-* Routing (app)
+   ```bash
+   pnpm install
+   ```
 
-* Business/UI logic (components)
+3. Run the development server:
 
-* Reusable primitives (ui)
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📦 Build for Production
+
+To create a production build:
+
+```bash
+pnpm build
+pnpm start
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🧠 Supporting Layers
+Built with ❤️ by [Your Name]
 
-```
-constants/
-├─ hero.ts
-├─ links.ts
-├─ projects.ts
-└─ skills.ts
+- constants/ → Static content & configuration
 
-context/
-└─ ThemeContext.tsx
+- context/ → Global state (Theme)
 
-public/
-├─ profile.jpg
-├─ logo.svg
-└─ cv.pdf
-```
-
-* constants/ → Static content & configuration
-
-* context/ → Global state (Theme)
-
-* public/ → Static assets
+- public/ → Static assets
 
 ---
 
 ## 🎨 Styling Approach
 
-* Tailwind CSS
+- Tailwind CSS
 
-* Utility-first
+- Utility-first
 
-* Responsive by default
+- Responsive by default
 
-* Dark mode via ThemeContext
+- Dark mode via ThemeContext
 
 ---
 
 ## 🧭 Architectural Principles
 
-* Pages = composition only
+- Pages = composition only
 
-* Components = logic + UI
+- Components = logic + UI
 
-* UI folder = dumb, reusable components
+- UI folder = dumb, reusable components
 
-* No styling logic inside app/
+- No styling logic inside app/
 
-* Clean imports via index.ts
+- Clean imports via index.ts
 
 ---
 
@@ -147,6 +133,10 @@ public/
 
 This project is **not open source**.
 
-All rights reserved © 2025 Omar Monib.  
+All rights reserved © 2025 Omar Monib.
 The code is published for **viewing and educational purposes only** and may not
 be copied, modified, or redistributed without permission.
+
+```
+
+```
