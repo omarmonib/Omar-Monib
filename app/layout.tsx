@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Layout Test',
-  description: 'Testing layouts in Next.js 13',
+  title: 'Omar Monib',
+  description: 'Omar Monib - Front-End Developer',
 };
 
 export default function RootLayout({ 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <ThemeProvider>
             <Navbar />
             {children}
+            <SpeedInsights />
           </ThemeProvider>
         </body>
       </html>
