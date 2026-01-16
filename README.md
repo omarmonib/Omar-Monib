@@ -84,7 +84,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Omar Monib
 
 - constants/ → Static content & configuration
 
@@ -133,7 +133,7 @@ Built with ❤️ by [Your Name]
 
 This project is **not open source**.
 
-All rights reserved © 2025 Omar Monib.
+All rights reserved © 2026 Omar Monib.
 The code is published for **viewing and educational purposes only** and may not
 be copied, modified, or redistributed without permission.
 
