@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
 import { Badge } from '../ui/badge';
 import type { Project } from '@/types/project';
+import { ExternalLink, Github, Eye } from "lucide-react";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -27,16 +28,27 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
 
           {/* OVERLAY */}
-          <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto">
-            <Button asChild size="lg" variant="custom">
-              <Link href={`/projects/${project.slug}`}>View Project</Link>
-            </Button>
+          <div className="absolute inset-0 flex items-center px-4 justify-center bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-3">
+            <div
+              className="gap-2 flex flex-col scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300"
+            >
+              <Button asChild size="sm" variant="custom">
+                <Link href={`/projects/${project.slug}`}><Eye className="w-4 h-4" /> View Project</Link>
+              </Button>
 
-            <Button asChild size="lg" variant="customOutline">
-              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Live Demo
-              </Link>
-            </Button>
+              <Button asChild size="sm" variant="customOutline">
+                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4" />
+                  Live Demo
+                </Link>
+              </Button>
+              <Button asChild size="sm" variant="customOutline">
+                <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4" />
+                  GitHub Repo
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
 

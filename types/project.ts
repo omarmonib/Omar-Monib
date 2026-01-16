@@ -8,6 +8,7 @@ export interface Project {
   image: string;
   projectUrl: string;
   liveUrl: string;
+  githubUrl: string;
   tags: string[];
   techs: string[];
   features: string[];

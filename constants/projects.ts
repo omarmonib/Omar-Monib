@@ -30,6 +30,7 @@ export const ProjectsData = {
     image: '/projects/e-commerce-dashboard.png',
     projectUrl: 'ecommerce-admin', // فقط slug
     liveUrl: 'https://ecommerce-demo.com',
+    githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'Framer Motion'],
   },
   'monib-shop': {
@@ -62,8 +63,9 @@ export const ProjectsData = {
     whyItMatters:
       'This project demonstrates the ability to build a production-ready E-Commerce frontend, apply modern React and Next.js patterns, and create a smooth, user-focused shopping experience with clean and scalable code.',
     image: '/projects/e-commerce-monibshop.png',
-    projectUrl: 'monib-shop', // فقط slug
+    projectUrl: 'monib-shop',
     liveUrl: 'https://omar-portfolio.vercel.app',
+    githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Hook Form'],
   },
 };
