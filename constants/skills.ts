@@ -8,6 +8,12 @@ export const SKILLS = [
   'Node.js / Express',
   'Git & GitHub',
   'Responsive Design',
+  'Jest & Testing',
+  'State Management (Zustand)',
+  'Form Handling (React Hook Form)',
+  'API Integration & REST',
+  'Database Design (SQL)',
+  'Problem Solving',
 ] as const;
 
 /**
