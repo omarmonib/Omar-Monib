@@ -1,5 +1,10 @@
-// constants/projects.ts
-export const ProjectsData = {
+import type { Project } from '@/types/project';
+
+/**
+ * Project data representing portfolio showcase projects
+ * Each project contains metadata, descriptions, and links
+ */
+const PROJECTS_DATA: Record<string, Project> = {
   'ecommerce-admin': {
     id: 1,
     slug: 'ecommerce-admin',
@@ -28,8 +33,8 @@ export const ProjectsData = {
     whyItMatters:
       'This project simulates a real production-level E-Commerce admin panel and demonstrates strong frontend architecture and UI management skills.',
     image: '/projects/e-commerce-dashboard.png',
-    projectUrl: 'ecommerce-admin', // فقط slug
-    liveUrl: 'https://ecommerce-demo.com',
+    projectUrl: 'ecommerce-admin',
+    liveUrl: 'https://admin-e-commerce-seven.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'Framer Motion'],
   },
@@ -64,8 +69,32 @@ export const ProjectsData = {
       'This project demonstrates the ability to build a production-ready E-Commerce frontend, apply modern React and Next.js patterns, and create a smooth, user-focused shopping experience with clean and scalable code.',
     image: '/projects/e-commerce-monibshop.png',
     projectUrl: 'monib-shop',
-    liveUrl: 'https://omar-portfolio.vercel.app',
+    liveUrl: 'https://monibshop.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Hook Form'],
   },
 };
+
+/**
+ * Get all projects
+ */
+export const getAllProjects = (): Project[] => {
+  return Object.values(PROJECTS_DATA);
+};
+
+/**
+ * Get a project by slug
+ */
+export const getProjectBySlug = (slug: string): Project | undefined => {
+  return PROJECTS_DATA[slug];
+};
+
+/**
+ * Get projects as a record (for backwards compatibility)
+ */
+export const getProjectsData = (): Record<string, Project> => {
+  return PROJECTS_DATA;
+};
+
+// Legacy export for backwards compatibility
+export const ProjectsData = PROJECTS_DATA;
