@@ -15,7 +15,7 @@ interface Props {
     cv: string;
     contact?: string;
   };
-  highlights?: string[];
+  highlights?: readonly string[];
 }
 
 const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlights }: Props) => {

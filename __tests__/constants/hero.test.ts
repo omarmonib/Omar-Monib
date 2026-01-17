@@ -5,13 +5,13 @@ describe('Hero Content Constants', () => {
     it('should have a name property', () => {
       expect(HERO_CONTENT).toHaveProperty('name');
       expect(typeof HERO_CONTENT.name).toBe('string');
-      expect(HERO_CONTENT.name).toBe('Omar');
+      expect(HERO_CONTENT.name).toBe('Omar Monib');
     });
 
     it('should have a title property', () => {
       expect(HERO_CONTENT).toHaveProperty('title');
       expect(typeof HERO_CONTENT.title).toBe('string');
-      expect(HERO_CONTENT.title).toBe('Front-End Developer');
+      expect(HERO_CONTENT.title).toBe('Frontend Developer & Network Engineer');
     });
 
     it('should have a description property', () => {
@@ -29,7 +29,7 @@ describe('Hero Content Constants', () => {
     it('should have correct CTA properties', () => {
       expect(HERO_CONTENT.cta).toHaveProperty('projects');
       expect(HERO_CONTENT.cta).toHaveProperty('cv');
-      expect(HERO_CONTENT.cta.projects).toBe('View Projects');
+      expect(HERO_CONTENT.cta.projects).toBe('View My Work');
       expect(HERO_CONTENT.cta.cv).toBe('Download CV');
     });
 
@@ -39,11 +39,29 @@ describe('Hero Content Constants', () => {
       expect(HERO_CONTENT.description.trim().length).toBeGreaterThan(0);
     });
 
-    it('should be immutable with as const assertion', () => {
-      // as const makes it readonly at TypeScript level
-      // At runtime, the object structure is preserved
-      expect(Object.isFrozen(HERO_CONTENT) || Object.keys(HERO_CONTENT).length === 4).toBe(true);
-      expect(HERO_CONTENT.name).toBe('Omar');
+    it('should have enhanced content structure', () => {
+      // Check for new properties added in enhancement
+      expect(HERO_CONTENT).toHaveProperty('subtitle');
+      expect(HERO_CONTENT).toHaveProperty('tagline');
+      expect(HERO_CONTENT).toHaveProperty('highlights');
+      expect(Array.isArray(HERO_CONTENT.highlights)).toBe(true);
+      expect(HERO_CONTENT.highlights.length).toBeGreaterThan(0);
+    });
+
+    it('should have subtitle and tagline with correct values', () => {
+      expect(HERO_CONTENT.subtitle).toBe('6+ Years Network Engineering • 2+ Years Frontend Development');
+      expect(HERO_CONTENT.tagline).toBe('Electronics & Communications Engineer • Vodafone • Freelance Developer');
+    });
+
+    it('should have highlights array with at least 4 items', () => {
+      expect(HERO_CONTENT.highlights.length).toBe(4);
+      expect(HERO_CONTENT.highlights[0]).toBe('React & Next.js Specialist');
+      expect(HERO_CONTENT.highlights[1]).toBe('TypeScript Expert');
+    });
+
+    it('should have CTA contact property', () => {
+      expect(HERO_CONTENT.cta).toHaveProperty('contact');
+      expect(HERO_CONTENT.cta.contact).toBe('Get in Touch');
     });
   });
 });
