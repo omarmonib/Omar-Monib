@@ -59,28 +59,16 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       )}
 
       <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start pt-3">
-        <Button
-          asChild
-          size="lg"
-          variant="custom"
-        >
+        <Button asChild size="lg" variant="custom">
           <Link href="/projects">{cta.projects}</Link>
         </Button>
 
-        <Button
-          asChild
-          size="lg"
-          variant="customOutline"
-        >
+        <Button asChild size="lg" variant="customOutline">
           <a href="/cv.pdf">{cta.cv}</a>
         </Button>
 
         {cta.contact && (
-          <Button
-            asChild
-            size="lg"
-            variant="customOutline"
-          >
+          <Button asChild size="lg" variant="customOutline">
             <Link href="/contact">{cta.contact}</Link>
           </Button>
         )}

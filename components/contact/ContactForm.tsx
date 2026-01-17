@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { FiCheck, FiX } from 'react-icons/fi';
 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,90 +17,161 @@ const ContactForm = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!formData.name || !formData.email || !formData.message) {
+      setError(true);
+      return;
+    }
+
+    setIsLoading(true);
     console.log('Form submitted:', formData);
 
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-
-    setTimeout(() => setSubmitted(false), 3000);
+    setTimeout(() => {
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setIsLoading(false);
+      setTimeout(() => setSubmitted(false), 4000);
+    }, 800);
   };
 
   return (
     <motion.form
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.4 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
       onSubmit={handleSubmit}
-      className="bg-background-secondary dark:bg-background p-8 rounded-xl shadow-xl"
+      className="bg-background-secondary/50 dark:bg-background/50 backdrop-blur-sm border border-accent/10 p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
     >
+      <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">Send Me a Message</h3>
+
       <div className="space-y-6">
         {/* NAME */}
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
+        <motion.div
+          className="space-y-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <Label htmlFor="name" className="text-sm font-medium">
+            Full Name *
+          </Label>
           <Input
             id="name"
             name="name"
-            placeholder="Enter your name"
+            placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
-            required
+            className="transition-all duration-200"
+            disabled={isLoading}
           />
-        </div>
+        </motion.div>
 
         {/* EMAIL */}
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
+        <motion.div
+          className="space-y-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55 }}
+        >
+          <Label htmlFor="email" className="text-sm font-medium">
+            Email Address *
+          </Label>
           <Input
             id="email"
             name="email"
             type="email"
-            placeholder="Enter your email"
+            placeholder="your.email@example.com"
             value={formData.email}
             onChange={handleChange}
-            required
+            className="transition-all duration-200"
+            disabled={isLoading}
           />
-        </div>
+        </motion.div>
 
         {/* MESSAGE */}
-        <div className="space-y-2">
-          <Label htmlFor="message">Your Message</Label>
+        <motion.div
+          className="space-y-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Label htmlFor="message" className="text-sm font-medium">
+            Your Message *
+          </Label>
           <Textarea
             id="message"
             name="message"
-            placeholder="Type your message here..."
-            rows={4}
+            placeholder="Tell me about your project or how I can help..."
+            rows={5}
             value={formData.message}
             onChange={handleChange}
-            required
+            className="transition-all duration-200 resize-none"
+            disabled={isLoading}
           />
-        </div>
+        </motion.div>
+
+        {/* ERROR MESSAGE */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="flex items-center gap-2 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm"
+          >
+            <FiX className="w-5 h-5 flex-shrink-0" />
+            <span>Please fill in all fields</span>
+          </motion.div>
+        )}
 
         {/* SUCCESS MESSAGE */}
         {submitted && (
-          <motion.p
-            initial={{ opacity: 0, y: 4 }}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-green-500 font-medium text-center"
+            exit={{ opacity: 0, y: -10 }}
+            className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm font-medium"
           >
-            Message sent successfully!
-          </motion.p>
+            <FiCheck className="w-5 h-5 flex-shrink-0" />
+            <span>Message sent successfully! I'll get back to you soon.</span>
+          </motion.div>
         )}
 
         {/* SUBMIT BUTTON */}
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-          <Button type="submit" size="lg" className="w-full">
-            Send Message
+        <motion.div
+          whileHover={!isLoading ? { scale: 1.02 } : {}}
+          whileTap={!isLoading ? { scale: 0.98 } : {}}
+        >
+          <Button
+            type="submit"
+            size="lg"
+            disabled={isLoading}
+            className="w-full text-base font-semibold transition-all duration-300"
+          >
+            {isLoading ? (
+              <motion.span
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                Sending...
+              </motion.span>
+            ) : (
+              'Send Message'
+            )}
           </Button>
         </motion.div>
+
+        <p className="text-xs text-muted text-center pt-2">I'll respond within 24-48 hours</p>
       </div>
     </motion.form>
   );

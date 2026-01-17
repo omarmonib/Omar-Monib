@@ -10,11 +10,11 @@ const HomeSection = () => {
   return (
     <section className="min-h-[90vh] flex items-center">
       <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6">
-        <HeroContent 
-          name={name} 
-          title={title} 
+        <HeroContent
+          name={name}
+          title={title}
           subtitle={subtitle}
-          description={description} 
+          description={description}
           tagline={tagline}
           cta={cta}
           highlights={highlights}
