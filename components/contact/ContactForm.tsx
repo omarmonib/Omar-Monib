@@ -129,7 +129,7 @@ const ContactForm = () => {
             exit={{ opacity: 0, y: -10 }}
             className="flex items-center gap-2 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm"
           >
-            <FiX className="w-5 h-5 flex-shrink-0" />
+            <FiX className="w-5 h-5 shrink-0" />
             <span>Please fill in all fields</span>
           </motion.div>
         )}
@@ -142,8 +142,8 @@ const ContactForm = () => {
             exit={{ opacity: 0, y: -10 }}
             className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm font-medium"
           >
-            <FiCheck className="w-5 h-5 flex-shrink-0" />
-            <span>Message sent successfully! I'll get back to you soon.</span>
+            <FiCheck className="w-5 h-5 shrink-0" />
+            <span>Message sent successfully! I&apos;ll get back to you soon.</span>
           </motion.div>
         )}
 
@@ -171,7 +171,7 @@ const ContactForm = () => {
           </Button>
         </motion.div>
 
-        <p className="text-xs text-muted text-center pt-2">I'll respond within 24-48 hours</p>
+        <p className="text-xs text-muted text-center pt-2">I&apos;ll respond within 24-48 hours</p>
       </div>
     </motion.form>
   );
