@@ -44,6 +44,7 @@ describe('Validators', () => {
 
     it('should reject object with missing required fields', () => {
       const { id, ...incomplete } = validProject;
+      void id;
       expect(isValidProject(incomplete)).toBe(false);
     });
 
@@ -58,21 +59,21 @@ describe('Validators', () => {
 
     it('should reject object without tags array', () => {
       const projectWithoutTags = { ...validProject };
-      // @ts-ignore - intentionally invalid for testing
+      // @ts-expect-error - intentionally invalid for testing
       delete projectWithoutTags.tags;
       expect(isValidProject(projectWithoutTags)).toBe(false);
     });
 
     it('should reject object without techs array', () => {
       const projectWithoutTechs = { ...validProject };
-      // @ts-ignore
+      // @ts-expect-error - testing invalid state
       delete projectWithoutTechs.techs;
       expect(isValidProject(projectWithoutTechs)).toBe(false);
     });
 
     it('should reject object without features array', () => {
       const projectWithoutFeatures = { ...validProject };
-      // @ts-ignore
+      // @ts-expect-error - testing invalid state
       delete projectWithoutFeatures.features;
       expect(isValidProject(projectWithoutFeatures)).toBe(false);
     });

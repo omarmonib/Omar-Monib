@@ -49,8 +49,12 @@ describe('Hero Content Constants', () => {
     });
 
     it('should have subtitle and tagline with correct values', () => {
-      expect(HERO_CONTENT.subtitle).toBe('6+ Years Network Engineering • 2+ Years Frontend Development');
-      expect(HERO_CONTENT.tagline).toBe('Electronics & Communications Engineer • Vodafone • Freelance Developer');
+      expect(HERO_CONTENT.subtitle).toBe(
+        '6+ Years Network Engineering • 2+ Years Frontend Development'
+      );
+      expect(HERO_CONTENT.tagline).toBe(
+        'Electronics & Communications Engineer • Vodafone • Freelance Developer'
+      );
     });
 
     it('should have highlights array with at least 4 items', () => {
