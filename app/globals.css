@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 /* ===============================
    ROOT VARIABLES (LIGHT MODE)
@@ -41,7 +41,7 @@
 ================================ */
 
 .dark,
-[data-theme="dark"] {
+[data-theme='dark'] {
   --background: #0f172a;
   --background-secondary: #1e293b;
   --foreground: #f1f5f9;
@@ -154,4 +154,36 @@ body {
 
 .bg-accent {
   background-color: var(--accent);
+}
+/* ===============================
+   CHROME AUTOFILL FIX
+================================ */
+
+/* Fix Chrome autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  box-shadow: 0 0 0 30px transparent inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--foreground) !important;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: 1rem;
+}
+
+/* Fix for textarea autofill */
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  box-shadow: 0 0 0 30px transparent inset !important;
+}
+
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--foreground) !important;
 }
