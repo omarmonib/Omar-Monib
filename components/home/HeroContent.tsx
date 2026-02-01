@@ -27,7 +27,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       className="text-center md:text-left space-y-5"
     >
       <h1 className="text-3xl md:text-6xl font-bold leading-tight">
-        Hi, I am <span className="text-accent">{name}</span>
+        Hi, I am <br /><span className="text-accent">{name}</span>
       </h1>
 
       <div>

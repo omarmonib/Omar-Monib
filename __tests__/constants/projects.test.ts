@@ -4,7 +4,6 @@ import {
   getProjectsData,
   ProjectsData,
 } from '@/constants/projects';
-import type { Project } from '@/types/project';
 
 describe('Projects Constants', () => {
   describe('getAllProjects', () => {

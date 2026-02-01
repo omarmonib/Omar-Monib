@@ -5,6 +5,28 @@ import type { Project } from '@/types/project';
  * Each project contains metadata, descriptions, and links
  */
 const PROJECTS_DATA: Record<string, Project> = {
+  'omar-monib': {
+    id: 5,
+    slug: 'omar-monib',
+    title: 'Omar Monib — Portfolio',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    features: [
+      '👨‍💻 Personal portfolio & projects showcase',
+      '📄 Blog & technical case studies',
+      '📱 Fully responsive and accessible UI',
+    ],
+    shortDescription:
+      'A personal portfolio website built with Next.js to showcase projects, write technical articles, and present professional experience in a clean, modern interface.',
+    fullDescription:
+      'Omar Monib Portfolio is a personal website designed to present projects, technical blog posts, and professional background in a structured and elegant way. The site is built with Next.js and Tailwind CSS, focusing on clean architecture, fast page loads, accessibility best practices, and a responsive layout that works seamlessly across devices.',
+    whyItMatters:
+      'Serves as a professional online presence to highlight skills, experience, and projects, making it easier for recruiters and clients to evaluate work and get in touch.',
+    image: '/projects/omar-monib.png',
+    projectUrl: 'omar-monib',
+    liveUrl: 'https://omar-monib.vercel.app/',
+    githubUrl: 'https://github.com/omarmonib',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+  },
   'ecommerce-admin': {
     id: 1,
     slug: 'ecommerce-admin',
@@ -72,6 +94,31 @@ const PROJECTS_DATA: Record<string, Project> = {
     liveUrl: 'https://monibshop.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Hook Form'],
+  },
+  'nur-al-iman': {
+    id: 4,
+    slug: 'nur-al-iman',
+    title: 'Nur Al-Iman Website',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Vercel'],
+    features: [
+      '📖 Quran pages with Surah & Ayah navigation',
+      '🎧 Audio player for Quran and Azkar',
+      '📌 Highlight active Ayah during audio playback',
+      '📰 Dynamic Islamic content (Quran, Azkar, Articles)',
+      '🎨 Modern RTL-aware UI with Dark/Light mode',
+      '♿ Accessibility improvements (ARIA + keyboard navigation)',
+    ],
+    shortDescription:
+      'An Islamic content website that provides Quran, Azkar, and articles with an integrated audio listening experience and optimized Arabic RTL interface.',
+    fullDescription:
+      'Nur Al-Iman is a modern Islamic web platform focused on delivering Quran, Azkar, and educational content with a smooth reading and listening experience. The project includes dynamic Quran pages, a Mushaf-style view with audio playback, and locally managed Azkar audio files. Built with Next.js (App Router), TypeScript, and Tailwind CSS, the project emphasizes performance, accessibility, and Arabic-first RTL user experience.',
+    whyItMatters:
+      'Demonstrates building a content-heavy, RTL-focused web application with integrated audio, accessibility considerations, and performance optimization.',
+    image: '/projects/nur-al-iman.png',
+    projectUrl: 'nur-al-iman',
+    liveUrl: 'https://noor-al-iman-web.vercel.app/',
+    githubUrl: 'https://github.com/omarmonib/nur-iman-web',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Accessibility', 'Audio', 'RTL'],
   },
 };
 
