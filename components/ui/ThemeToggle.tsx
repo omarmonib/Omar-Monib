@@ -1,11 +1,11 @@
 'use client';
 
-import { useContext } from 'react';
-import { ThemeContext } from '@/context/ThemeContext';
 import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/hooks/useTheme';
+
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+const { theme, toggleTheme } = useTheme();
 
   return (
     <button
