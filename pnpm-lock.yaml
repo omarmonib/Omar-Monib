@@ -90,7 +90,7 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       zod:
-        specifier: ^3.24.1
+        specifier: 3.24.1
         version: 3.24.1
     devDependencies:
       '@stylexjs/babel-plugin':

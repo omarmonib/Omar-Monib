@@ -18,6 +18,8 @@ const HeroImage = ({ name }: { name: string }) => {
           src={ProfileImg}
           alt={`${name} profile picture`}
           fill
+          priority
+          loading="eager"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover"
         />
