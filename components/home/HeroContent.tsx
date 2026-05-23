@@ -22,12 +22,13 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 2 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="text-center md:text-left space-y-5"
     >
       <h1 className="text-3xl md:text-6xl font-bold leading-tight">
-        Hi, I am <br /><span className="text-accent">{name}</span>
+        Hi, I am <br />
+        <span className="text-accent">{name}</span>
       </h1>
 
       <div>
@@ -64,7 +65,9 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
         </Button>
 
         <Button asChild size="lg" variant="customOutline">
-          <a href="/cv.pdf">{cta.cv}</a>
+          <a href="/cv.pdf" download>
+            {cta.cv}
+          </a>
         </Button>
 
         {cta.contact && (

@@ -9,7 +9,7 @@ import NavItem from '@/components/ui/NavLink';
 import ThemeSwitcher from '@/components/ui/ThemeToggle';
 import Logo from '@/components/ui/Logo';
 import { NAV_LINKS } from '@/constants/links';
-import Image from 'next/image';
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();

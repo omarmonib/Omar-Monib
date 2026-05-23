@@ -19,7 +19,7 @@ const buttonVariants = cva(
         custom:
           'bg-primary text-primary-foreground hover:shadow-sm hover:shadow-muted font-bold hover:scale-105',
         customOutline:
-          'border border-accent bg-card shadow-sm text-accent hover:shadow-sm hover:shadow-primary font-bold hover:scale-102',
+          'border border-accent bg-card shadow-sm text-accent hover:shadow-sm hover:shadow-primary font-bold hover:scale-[1.02]',
       },
       size: {
         default: 'h-9 px-4 py-2',

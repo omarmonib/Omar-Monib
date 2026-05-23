@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import {
   getAllProjects,
   getProjectBySlug,
@@ -99,6 +101,8 @@ describe('Projects Constants', () => {
       const data = getProjectsData();
       expect(data['ecommerce-admin']).toBeDefined();
       expect(data['monib-shop']).toBeDefined();
+      expect(data['nur-al-iman']).toBeDefined(); // ← add
+      expect(data['omar-monib']).toBeDefined(); // ← add
     });
 
     it('should return data with correct project count', () => {
@@ -117,20 +121,18 @@ describe('Projects Constants', () => {
       expect(ProjectsData['monib-shop']).toBeDefined();
     });
 
-    it('should be compatible with getAllProjects', () => {
-      const allProjects = getAllProjects();
-      const dataProjects = Object.values(ProjectsData);
-      expect(allProjects.length).toBe(dataProjects.length);
+    it('should contain nur-al-iman project', () => {
+      // ← add
+      expect(ProjectsData['nur-al-iman']).toBeDefined();
+    });
+
+    it('should contain omar-monib project', () => {
+      // ← add
+      expect(ProjectsData['omar-monib']).toBeDefined();
     });
   });
 
   describe('Project data consistency', () => {
-    it('should have matching slug and projectUrl', () => {
-      const projects = getAllProjects();
-      projects.forEach((project) => {
-        expect(project.slug).toBe(project.projectUrl);
-      });
-    });
 
     it('should have unique IDs', () => {
       const projects = getAllProjects();

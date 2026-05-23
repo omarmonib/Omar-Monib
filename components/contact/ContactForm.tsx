@@ -1,48 +1,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { FiCheck, FiX } from 'react-icons/fi';
+import { useState } from 'react';
 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import type { ContactApiResponse } from '@/types/contact';
+
+const contactSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email address'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+  const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const onSubmit = async (data: ContactFormData) => {
+    setServerError(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setError(false);
-  };
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+      const result: ContactApiResponse = await res.json();
 
-    if (!formData.name || !formData.email || !formData.message) {
-      setError(true);
-      return;
-    }
+      if (!res.ok || !result.success) {
+        setServerError(result.error ?? 'Something went wrong. Please try again.');
+        return;
+      }
 
-    setIsLoading(true);
-    console.log('Form submitted:', formData);
-
-    setTimeout(() => {
       setSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      setIsLoading(false);
+      reset();
       setTimeout(() => setSubmitted(false), 4000);
-    }, 800);
+    } catch {
+      setServerError('Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -50,7 +64,7 @@ const ContactForm = () => {
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.4, duration: 0.6 }}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="bg-background-secondary/50 dark:bg-background/50 backdrop-blur-sm border border-accent/10 p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
     >
       <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">Send Me a Message</h3>
@@ -68,13 +82,12 @@ const ContactForm = () => {
           </Label>
           <Input
             id="name"
-            name="name"
             placeholder="Your name"
-            value={formData.name}
-            onChange={handleChange}
+            {...register('name')}
             className="transition-all duration-200"
-            disabled={isLoading}
+            disabled={isSubmitting}
           />
+          {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
         </motion.div>
 
         {/* EMAIL */}
@@ -89,14 +102,13 @@ const ContactForm = () => {
           </Label>
           <Input
             id="email"
-            name="email"
             type="email"
             placeholder="your.email@example.com"
-            value={formData.email}
-            onChange={handleChange}
+            {...register('email')}
             className="transition-all duration-200"
-            disabled={isLoading}
+            disabled={isSubmitting}
           />
+          {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
         </motion.div>
 
         {/* MESSAGE */}
@@ -111,35 +123,32 @@ const ContactForm = () => {
           </Label>
           <Textarea
             id="message"
-            name="message"
             placeholder="Tell me about your project or how I can help..."
             rows={5}
-            value={formData.message}
-            onChange={handleChange}
+            {...register('message')}
             className="transition-all duration-200 resize-none"
-            disabled={isLoading}
+            disabled={isSubmitting}
           />
+          {errors.message && <p className="text-xs text-red-500">{errors.message.message}</p>}
         </motion.div>
 
-        {/* ERROR MESSAGE */}
-        {error && (
+        {/* SERVER ERROR */}
+        {serverError && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
             className="flex items-center gap-2 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm"
           >
             <FiX className="w-5 h-5 shrink-0" />
-            <span>Please fill in all fields</span>
+            <span>{serverError}</span>
           </motion.div>
         )}
 
-        {/* SUCCESS MESSAGE */}
+        {/* SUCCESS */}
         {submitted && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
             className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm font-medium"
           >
             <FiCheck className="w-5 h-5 shrink-0" />
@@ -147,18 +156,15 @@ const ContactForm = () => {
           </motion.div>
         )}
 
-        {/* SUBMIT BUTTON */}
-        <motion.div
-          whileHover={!isLoading ? { scale: 1.02 } : {}}
-          whileTap={!isLoading ? { scale: 0.98 } : {}}
-        >
+        {/* SUBMIT */}
+        <motion.div whileHover={!isSubmitting ? { scale: 1.02 } : {}}>
           <Button
             type="submit"
             size="lg"
-            disabled={isLoading}
+            disabled={isSubmitting}
             className="w-full text-base font-semibold transition-all duration-300"
           >
-            {isLoading ? (
+            {isSubmitting ? (
               <motion.span
                 animate={{ opacity: [1, 0.5, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}

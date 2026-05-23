@@ -1,13 +1,10 @@
 import type { Project } from '@/types/project';
 
-/**
- * Project data representing portfolio showcase projects
- * Each project contains metadata, descriptions, and links
- */
 const PROJECTS_DATA: Record<string, Project> = {
   'omar-monib': {
     id: 5,
     slug: 'omar-monib',
+    icon: 'user',
     title: 'Omar Monib — Portfolio',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     features: [
@@ -22,7 +19,6 @@ const PROJECTS_DATA: Record<string, Project> = {
     whyItMatters:
       'Serves as a professional online presence to highlight skills, experience, and projects, making it easier for recruiters and clients to evaluate work and get in touch.',
     image: '/projects/omar-monib.png',
-    projectUrl: 'omar-monib',
     liveUrl: 'https://omar-monib.vercel.app/',
     githubUrl: 'https://github.com/omarmonib',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
@@ -30,6 +26,7 @@ const PROJECTS_DATA: Record<string, Project> = {
   'ecommerce-admin': {
     id: 1,
     slug: 'ecommerce-admin',
+    icon: 'shopping-cart',
     title: 'E-Commerce Admin Dashboard',
     techs: [
       'Next.js 14',
@@ -55,7 +52,6 @@ const PROJECTS_DATA: Record<string, Project> = {
     whyItMatters:
       'This project simulates a real production-level E-Commerce admin panel and demonstrates strong frontend architecture and UI management skills.',
     image: '/projects/e-commerce-dashboard.png',
-    projectUrl: 'ecommerce-admin',
     liveUrl: 'https://admin-e-commerce-seven.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'Framer Motion'],
@@ -63,6 +59,7 @@ const PROJECTS_DATA: Record<string, Project> = {
   'monib-shop': {
     id: 2,
     slug: 'monib-shop',
+    icon: 'shopping-bag',
     title: 'MonibShop – E-Commerce Website',
     techs: [
       'Next.js 14',
@@ -90,7 +87,6 @@ const PROJECTS_DATA: Record<string, Project> = {
     whyItMatters:
       'This project demonstrates the ability to build a production-ready E-Commerce frontend, apply modern React and Next.js patterns, and create a smooth, user-focused shopping experience with clean and scalable code.',
     image: '/projects/e-commerce-monibshop.png',
-    projectUrl: 'monib-shop',
     liveUrl: 'https://monibshop.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Hook Form'],
@@ -99,6 +95,7 @@ const PROJECTS_DATA: Record<string, Project> = {
     id: 4,
     slug: 'nur-al-iman',
     title: 'Nur Al-Iman Website',
+    icon: 'book-open',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Vercel'],
     features: [
       '📖 Quran pages with Surah & Ayah navigation',
@@ -115,7 +112,6 @@ const PROJECTS_DATA: Record<string, Project> = {
     whyItMatters:
       'Demonstrates building a content-heavy, RTL-focused web application with integrated audio, accessibility considerations, and performance optimization.',
     image: '/projects/nur-al-iman.png',
-    projectUrl: 'nur-al-iman',
     liveUrl: 'https://noor-al-iman-web.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/nur-iman-web',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Accessibility', 'Audio', 'RTL'],
