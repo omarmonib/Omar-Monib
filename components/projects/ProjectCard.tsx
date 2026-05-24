@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
 import { Badge } from '../ui/badge';
 import type { Project } from '@/types/project';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import ProjectMockup from '@/components/projects/ProjectMockup';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -17,19 +17,13 @@ export default function ProjectCard({ project }: { project: Project }) {
       className="h-full"
     >
       <Card className="group rounded-xl border shadow-md flex flex-col h-full overflow-hidden">
-        {/* IMAGE WRAPPER */}
-        <div className="relative w-full aspect-video sm:aspect-4/3 md:aspect-3/2 overflow-hidden rounded-t-lg">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+        {/* MOCKUP + DESKTOP OVERLAY */}
+        <div className="relative w-full pt-4 px-4 bg-background-secondary rounded-t-xl overflow-hidden">
+          <ProjectMockup project={project} />
 
-          {/* DESKTOP OVERLAY — hover only */}
-          <div className="absolute inset-0 hidden md:flex items-center px-4 justify-center bg-background/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="gap-2 flex flex-col items-center w-full max-w-xs scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300">
+          {/* DESKTOP OVERLAY — covers full mockup area */}
+          <div className="absolute inset-0 hidden md:flex items-center justify-center bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-t-xl">
+            <div className="flex flex-col items-center gap-2 w-full max-w-50 scale-95 group-hover:scale-100 transition-transform duration-300">
               <Button asChild size="sm" variant="custom" className="w-full">
                 <Link href={`/projects/${project.slug}`}>
                   <Eye className="w-4 h-4" /> View Project
@@ -70,7 +64,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          {/* MOBILE CTAs — always visible on mobile, hidden on desktop */}
+          {/* MOBILE CTAs */}
           <div className="flex gap-2 w-full md:hidden">
             <Button asChild size="sm" variant="custom" className="flex-1 gap-1">
               <Link href={`/projects/${project.slug}`}>

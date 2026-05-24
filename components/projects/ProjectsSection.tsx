@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
-import ProjectsHeader from '@/components/projects/ProjectsHeader';
-import ProjectsCarousel from '@/components/projects/ProjectsCarousel';
-import ProjectsGridSkeleton from '@/components/projects/ProjectsGridSkeleton';
+import ProjectsHeader from './ProjectsHeader';
+import ProjectsGrid from './ProjectsGrid';
+import ProjectsGridSkeleton from './ProjectsGridSkeleton';
 
 export default function ProjectsSection() {
   return (
@@ -9,7 +9,7 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <ProjectsHeader />
         <Suspense fallback={<ProjectsGridSkeleton />}>
-          <ProjectsCarousel />
+          <ProjectsGrid />
         </Suspense>
       </div>
     </section>

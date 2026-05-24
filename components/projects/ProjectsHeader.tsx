@@ -12,9 +12,9 @@ export default function ProjectsHeader() {
     >
       <h2 className="text-4xl md:text-5xl font-bold text-accent mb-4">My Projects</h2>
 
-      <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-        Here are some of my recent projects. Each one was built to solve a specific problem or
-        explore new technologies.
+      <p className="text-base text-muted-foreground max-w-xl mx-auto">
+        Here are some of my recent projects, each built to solve a real problem or explore new
+        technologies.
       </p>
     </motion.div>
   );
