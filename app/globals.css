@@ -125,29 +125,13 @@ body {
 }
 
 /* ===============================
-   OPTIONAL UTILITY CLASSES
+   UTILITY CLASSES
 ================================ */
-
-.bg-background {
-  background-color: var(--background);
-}
 
 .bg-background-secondary {
   background-color: var(--background-secondary);
 }
 
-.text-foreground {
-  color: var(--foreground);
-}
-
 .border-base {
   border-color: var(--border);
-}
-
-.text-accent {
-  color: var(--accent);
-}
-
-.bg-accent {
-  background-color: var(--accent);
 }

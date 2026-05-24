@@ -28,16 +28,22 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <>
-      <html data-scroll-behavior="smooth" lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ThemeProvider>
-            <Navbar />
+    <html data-scroll-behavior="smooth" lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-md focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
+        <ThemeProvider>
+          <Navbar />
+          <main id="main-content">
             {children}
-            <SpeedInsights />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+          </main>
+          <SpeedInsights />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

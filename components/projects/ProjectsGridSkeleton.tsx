@@ -1,7 +1,11 @@
+import { getAllProjects } from '@/constants/projects';
+
 export default function ProjectsGridSkeleton() {
+  const count = getAllProjects().length;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {Array.from({ length: 6 }).map((_, i) => (
+      {Array.from({ length: count }).map((_, i) => (
         <div key={i} className="rounded-xl border bg-card shadow-md overflow-hidden animate-pulse">
           <div className="w-full aspect-video bg-secondary" />
           <div className="p-6 space-y-3">
