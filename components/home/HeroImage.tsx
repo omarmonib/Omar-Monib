@@ -11,16 +11,19 @@ const HeroImage = ({ name }: { name: string }) => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="flex justify-center"
+      className="flex justify-center relative"
     >
-      <Avatar className="w-36 h-36 md:w-72 md:h-72 ring-2 md:ring-4 ring-accent/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+      {/* Glow effect */}
+      <div className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-500/30 to-purple-500/20 blur-3xl scale-75" />
+
+      <Avatar className="relative z-10 w-48 h-48 md:w-72 md:h-72 ring-2 md:ring-4 ring-accent/40 shadow-[0_20px_40px_rgba(99,102,241,0.15)]">
         <Image
           src={ProfileImg}
           alt={`${name} profile picture`}
           fill
           priority
           loading="eager"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 192px, 288px"
           className="object-cover"
         />
         <AvatarFallback>{name[0]}</AvatarFallback>

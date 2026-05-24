@@ -12,7 +12,7 @@ import { ExternalLink, Github, Eye } from 'lucide-react';
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
-      whileHover={{ y: 2, scale: 1.02 }}
+      whileHover={{ y: -4, scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300 }}
       className="h-full"
     >
@@ -27,32 +27,22 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 flex items-center px-4 justify-center bg-background/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* DESKTOP OVERLAY — hover only */}
+          <div className="absolute inset-0 hidden md:flex items-center px-4 justify-center bg-background/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="gap-2 flex flex-col items-center w-full max-w-xs scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300">
               <Button asChild size="sm" variant="custom" className="w-full">
                 <Link href={`/projects/${project.slug}`}>
-                  <span className="inline-flex items-center justify-center gap-2">
-                    <Eye className="w-4 h-4" /> View Project
-                  </span>
+                  <Eye className="w-4 h-4" /> View Project
                 </Link>
               </Button>
-
               <Button asChild size="sm" variant="customOutline" className="w-full">
                 <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <span className="inline-flex items-center justify-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </span>
+                  <ExternalLink className="w-4 h-4" /> Live Demo
                 </Link>
               </Button>
-
               <Button asChild size="sm" variant="customOutline" className="w-full">
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <span className="inline-flex items-center justify-center gap-2">
-                    <Github className="w-4 h-4" />
-                    GitHub Repo
-                  </span>
+                  <Github className="w-4 h-4" /> GitHub Repo
                 </Link>
               </Button>
             </div>
@@ -67,8 +57,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           </p>
         </CardContent>
 
-        <CardFooter className="px-4 sm:px-6 py-3">
-          <div className="flex flex-wrap gap-2 mt-auto">
+        {/* TAGS */}
+        <CardFooter className="px-4 sm:px-6 py-3 flex-col items-start gap-3">
+          <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <Badge
                 key={tag}
@@ -77,6 +68,25 @@ export default function ProjectCard({ project }: { project: Project }) {
                 {tag}
               </Badge>
             ))}
+          </div>
+
+          {/* MOBILE CTAs — always visible on mobile, hidden on desktop */}
+          <div className="flex gap-2 w-full md:hidden">
+            <Button asChild size="sm" variant="custom" className="flex-1 gap-1">
+              <Link href={`/projects/${project.slug}`}>
+                <Eye className="w-3 h-3" /> View
+              </Link>
+            </Button>
+            <Button asChild size="sm" variant="customOutline" className="flex-1 gap-1">
+              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-3 h-3" /> Live
+              </Link>
+            </Button>
+            <Button asChild size="sm" variant="customOutline" className="flex-1 gap-1">
+              <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="w-3 h-3" /> GitHub
+              </Link>
+            </Button>
           </div>
         </CardFooter>
       </Card>

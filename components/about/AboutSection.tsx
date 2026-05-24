@@ -10,9 +10,10 @@ const AboutSection = () => {
       <div className="max-w-4xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-12 text-center text-accent"
+          className="text-3xl md:text-4xl font-bold mb-12 text-center text-accent"
         >
           About Me
         </motion.h2>

@@ -34,9 +34,9 @@ const ContactSection = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-accent gradient-text">
             Get In Touch
           </h1>
-          <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-            I'd love to hear from you. Whether you have a project in mind, want to collaborate, or
-            just want to chat about tech – feel free to reach out!
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            I&apos;d love to hear from you. Whether you have a project in mind, want to collaborate,
+            or just want to chat about tech – feel free to reach out!
           </p>
         </motion.div>
 
@@ -44,14 +44,17 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <ContactInfo />
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <ContactForm />

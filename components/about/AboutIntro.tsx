@@ -9,25 +9,28 @@ const AboutIntro = () => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}
-      animate={{ opacity: 1, x: 0 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
       transition={{ delay: 0.2, duration: 0.6 }}
     >
       <h3 className="text-2xl font-semibold mb-4">{whoAmI.heading}</h3>
-      <p className="text-lg leading-relaxed mb-6 text-muted">{whoAmI.description}</p>
+      <p className="text-base leading-relaxed mb-6 text-muted-foreground">{whoAmI.description}</p>
 
       <div className="mb-6">
         <h4 className="text-lg font-semibold mb-2">{background.heading}</h4>
-        <p className="text-base leading-relaxed text-muted mb-3">{background.description}</p>
+        <p className="text-base leading-relaxed text-muted-foreground mb-3">
+          {background.description}
+        </p>
       </div>
 
       <div className="mb-6">
         <h4 className="text-lg font-semibold mb-2">{skills.heading}</h4>
-        <p className="text-base leading-relaxed text-muted">{skills.description}</p>
+        <p className="text-base leading-relaxed text-muted-foreground">{skills.description}</p>
       </div>
 
       <div>
         <h4 className="text-lg font-semibold mb-2">{passion.heading}</h4>
-        <p className="text-base leading-relaxed text-muted">{passion.description}</p>
+        <p className="text-base leading-relaxed text-muted-foreground">{passion.description}</p>
       </div>
     </motion.div>
   );
