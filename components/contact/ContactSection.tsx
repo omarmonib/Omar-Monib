@@ -34,7 +34,7 @@ const ContactSection = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-accent gradient-text">
             Get In Touch
           </h1>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
             I&apos;d love to hear from you. Whether you have a project in mind, want to collaborate,
             or just want to chat about tech – feel free to reach out!
           </p>
