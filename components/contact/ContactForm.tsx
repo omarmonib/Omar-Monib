@@ -1,9 +1,10 @@
 'use client';
 
+'use client';
+
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { FiCheck, FiX } from 'react-icons/fi';
 import { useState } from 'react';
 
@@ -29,13 +30,23 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
+  } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
     setServerError(null);
+
+    // Manual Zod validation
+    const result = contactSchema.safeParse(data);
+    if (!result.success) {
+      result.error.errors.forEach((err) => {
+        setError(err.path[0] as keyof ContactFormData, {
+          message: err.message,
+        });
+      });
+      return;
+    }
 
     try {
       const res = await fetch('/api/contact', {
@@ -44,10 +55,10 @@ const ContactForm = () => {
         body: JSON.stringify(data),
       });
 
-      const result: ContactApiResponse = await res.json();
+      const response: ContactApiResponse = await res.json();
 
-      if (!res.ok || !result.success) {
-        setServerError(result.error ?? 'Something went wrong. Please try again.');
+      if (!res.ok || !response.success) {
+        setServerError(response.error ?? 'Something went wrong. Please try again.');
         return;
       }
 
@@ -58,7 +69,6 @@ const ContactForm = () => {
       setServerError('Something went wrong. Please try again.');
     }
   };
-
   return (
     <motion.form
       initial={{ opacity: 0, x: 30 }}
@@ -181,6 +191,6 @@ const ContactForm = () => {
       </div>
     </motion.form>
   );
-};
+};;
 
 export default ContactForm;
