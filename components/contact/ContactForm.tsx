@@ -68,13 +68,15 @@ const ContactForm = () => {
     }
   };
   return (
-    <motion.form
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.4, duration: 0.6 }}
-      onSubmit={handleSubmit(onSubmit)}
-      className="bg-card border border-border hover:border-accent/40 p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
-    >
+    <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border hover:border-accent/40 bg-card">
+  <motion.form
+    initial={{ opacity: 0, x: 30 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.4, duration: 0.6 }}
+    onSubmit={handleSubmit(onSubmit)}
+    className="p-6 sm:p-8 md:p-10"
+  >
+    
       <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">Send Me a Message</h3>
 
       <div className="space-y-6">
@@ -188,6 +190,7 @@ const ContactForm = () => {
         <p className="text-xs text-muted text-center pt-2">I&apos;ll respond within 24-48 hours</p>
       </div>
     </motion.form>
+    </div>
   );
 };
 
