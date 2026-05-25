@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -191,6 +189,6 @@ const ContactForm = () => {
       </div>
     </motion.form>
   );
-};;
+};
 
 export default ContactForm;
