@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import { ThemeProvider } from '@/lib/context/ThemeContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Footer from '@/components/layout/Footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="main-content">
             {children}
           </main>
+          <Footer />
           <SpeedInsights />
         </ThemeProvider>
       </body>

@@ -10,7 +10,6 @@ export const HERO_CONTENT = {
   tagline: 'Electronics & Communications Engineer • Vodafone • Freelance Developer',
   cta: {
     projects: 'View My Work',
-    cv: 'Download CV',
     contact: 'Get in Touch',
   },
   highlights: [

@@ -12,7 +12,6 @@ interface Props {
   tagline?: string;
   cta: {
     projects: string;
-    cv: string;
     contact?: string;
   };
   highlights?: readonly string[];
