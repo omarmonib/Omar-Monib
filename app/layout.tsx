@@ -17,8 +17,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Omar Monib',
-  description: 'Omar Monib - Front-End Developer',
+  title: {
+    default: 'Omar Monib | Frontend Developer',
+    template: '%s | Omar Monib',
+  },
+  description:
+    'Frontend Developer specializing in React.js and Next.js. Building high-performance web applications with a unique network engineering background.',
+  keywords: ['Frontend Developer', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Egypt'],
+  authors: [{ name: 'Omar Monib' }],
+  creator: 'Omar Monib',
 };
 
 export const viewport: Viewport = {
