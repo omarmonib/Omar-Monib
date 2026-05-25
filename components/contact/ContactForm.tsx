@@ -68,13 +68,12 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border hover:border-accent/40 bg-card">
+    <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border hover:border-accent/40 bg-card p-10">
       <motion.form
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
         onSubmit={handleSubmit(onSubmit)}
-        className="p-10"
       >
         <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">
           Send Me a Message
