@@ -35,8 +35,7 @@ const ContactSection = () => {
             Get In Touch
           </h1>
           <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            I&apos;d love to hear from you — whether you have a project, want to collaborate, or
-            just chat about tech.
+            Have a project in mind or want to collaborate? Feel free to reach out.
           </p>
         </motion.div>
 
