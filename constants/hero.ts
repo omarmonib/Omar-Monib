@@ -1,13 +1,10 @@
-/**
- * Hero section content and call-to-action text
- */
 export const HERO_CONTENT = {
   name: 'Omar Monib',
-  title: 'Frontend Developer & Network Engineer',
-  subtitle: '6+ Years Network Engineering • 2+ Years Frontend Development',
+  title: 'Frontend Developer · React & Next.js Specialist',
+  subtitle: '7 Years Engineering at Vodafone · 3 Years Frontend Development',
   description:
-    'I craft beautiful, high-performance web applications using modern technologies. With a unique background combining network engineering expertise and full-stack development, I bring a distinctive approach to solving complex problems.',
-  tagline: 'Electronics & Communications Engineer • Vodafone • Freelance Developer',
+    "I build fast, production-grade web apps with React and Next.js. My background in network engineering at Vodafone gives me a reliability mindset most frontend developers don't have.",
+  tagline: '',
   cta: {
     projects: 'View My Work',
     contact: 'Get in Touch',

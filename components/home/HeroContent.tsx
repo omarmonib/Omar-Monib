@@ -47,7 +47,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       </p>
 
       {/* Tagline — muted, smaller */}
-      {tagline && (
+      {tagline && tagline.length > 0 && (
         <p className="text-xs md:text-sm text-muted-foreground/50 font-medium italic">{tagline}</p>
       )}
 
