@@ -73,7 +73,7 @@ const ContactForm = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.4, duration: 0.6 }}
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-background-secondary border border-border hover:border-accent/40 p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+      className="bg-card border border-border hover:border-accent/40 p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
     >
       <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">Send Me a Message</h3>
 
