@@ -74,8 +74,7 @@ const ContactForm = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
         onSubmit={handleSubmit(onSubmit)}
-        className="p-6 sm:p-8 md:p-10"
-        style={{ padding: '2.5rem' }}
+        className="p-10"
       >
         <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">
           Send Me a Message
