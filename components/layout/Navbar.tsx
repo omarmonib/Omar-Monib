@@ -79,8 +79,7 @@ export default function Navbar() {
             transition={{ duration: 0.22 }}
             className="
           md:hidden absolute w-full right-0
-          bg-background-secondary/95 backdrop-blur
-          border-b border-base
+          bg-background border-b border-base
         "
           >
             <div className="flex flex-col items-center gap-4 py-4">

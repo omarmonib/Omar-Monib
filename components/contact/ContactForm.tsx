@@ -68,7 +68,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border hover:border-accent/40 bg-card p-10">
+    <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border-accent/20 hover:border-accent/50 bg-card p-10">
       <motion.form
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}

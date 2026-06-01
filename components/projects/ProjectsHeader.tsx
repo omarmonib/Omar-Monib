@@ -13,8 +13,7 @@ export default function ProjectsHeader() {
       <h2 className="text-4xl md:text-5xl font-bold text-accent mb-4">My Projects</h2>
 
       <p className="text-base text-muted-foreground max-w-xl mx-auto">
-        Here are some of my recent projects, each built to solve a real problem or explore new
-        technologies.
+        A selection of projects built with React, Next.js, and TypeScript.
       </p>
     </motion.div>
   );

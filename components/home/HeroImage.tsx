@@ -23,6 +23,7 @@ const HeroImage = ({ name }: { name: string }) => {
           fill
           priority
           loading="eager"
+          fetchPriority="high"
           sizes="(max-width: 640px) 192px, 288px"
           className="object-cover"
         />

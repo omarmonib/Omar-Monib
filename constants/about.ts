@@ -2,6 +2,7 @@ import { getAllProjects } from '@/constants/projects';
 import { getSkillCount } from '@/constants/skills';
 
 const EXPERIENCE_START_YEAR = 2019;
+
 const FRONTEND_START_YEAR = 2023;
 
 const currentYear = new Date().getFullYear();
@@ -11,8 +12,7 @@ const frontendYears = currentYear - FRONTEND_START_YEAR;
 export const ABOUT_CONTENT = {
   whoAmI: {
     heading: 'Who am I?',
-    description:
-      'Frontend Developer and Electronics & Communications Engineer with 6+ years at Vodafone and 2+ years of freelance development — bringing a unique blend of network architecture and modern web expertise.',
+    description: `Frontend Developer and Electronics & Communications Engineer with ${experienceYears} years at Vodafone and ${frontendYears} years of freelance development — bringing a unique blend of network architecture and modern web expertise.`,
   },
   background: {
     heading: 'Professional Background',
@@ -113,4 +113,4 @@ export const ABOUT_INTERESTS = [
 export const ABOUT_LANGUAGES = [
   { language: 'Arabic', level: 'Native', flag: '🇪🇬' },
   { language: 'English', level: 'Professional Working', flag: '🇬🇧' },
-] as const;
+]
