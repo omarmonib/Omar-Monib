@@ -28,7 +28,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       {/* Name */}
       <h1 className="text-4xl md:text-7xl font-bold leading-tight">
         Hi, I am <br />
-        <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
           {name}
         </span>
       </h1>

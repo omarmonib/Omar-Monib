@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiPhone, FiLinkedin, FiGithub, FiTwitter } from 'react-icons/fi';
 import { SOCIAL_LINKS, CONTACT_INFO } from '@/constants/contact';
+import type { IconType } from 'react-icons';
 
 const contactInfoItems = [
   { icon: FiMail, label: 'Email', value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}` },
@@ -10,7 +11,7 @@ const contactInfoItems = [
   { icon: FiMapPin, label: 'Location', value: CONTACT_INFO.location },
 ];
 
-const iconMap: Record<string, React.FC<any>> = {
+const iconMap: Record<string, IconType> = {
   linkedin: FiLinkedin,
   github: FiGithub,
   twitter: FiTwitter,
@@ -45,14 +46,14 @@ const ContactInfo = () => {
                 animate="visible"
                 className="flex items-start gap-4 group"
               >
-                <div className="mt-1 flex-shrink-0 p-3 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 flex items-center justify-center">
+                <div className="mt-1 shrink-0 p-3 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 flex items-center justify-center">
                   <Icon className="w-6 h-6 text-accent" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-semibold text-foreground text-sm md:text-base">
                     {info.label}
                   </h4>
-                  <p className="text-muted text-sm md:text-base break-words">{info.value}</p>
+                  <p className="text-muted text-sm md:text-base wrap-break-word">{info.value}</p>
                 </div>
               </motion.div>
             );
