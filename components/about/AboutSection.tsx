@@ -36,7 +36,14 @@ const AboutSection = () => {
           className="flex flex-col items-center gap-3 mb-12"
         >
           <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-accent/40 shadow-lg shadow-accent/20">
-            <Image src={ProfileImg} alt="Omar Monib" fill sizes="96px" className="object-cover" />
+            <Image
+              src={ProfileImg}
+              alt="Omar Monib — Frontend Developer and Network Engineer"
+              fill
+              placeholder="blur"
+              sizes="96px"
+              className="object-cover"
+            />
           </div>
           <div className="text-center">
             <h3 className="text-lg font-semibold text-foreground">Omar Monib</h3>

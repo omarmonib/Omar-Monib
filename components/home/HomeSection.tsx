@@ -1,14 +1,16 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { HERO_CONTENT } from '@/constants/hero';
 import HeroImage from './HeroImage';
 import HeroContent from './HeroContent';
-import AboutTeaser from './AboutTeaser';
-import FeaturedProjects from './FeaturedProjects';
-import ContactCTA from './ContactCTA';
-import Testimonials from './Testimonials';
 
+// Lazy load everything below the fold
+const AboutTeaser = dynamic(() => import('./AboutTeaser'), { ssr: false });
+const FeaturedProjects = dynamic(() => import('./FeaturedProjects'), { ssr: false });
+const Testimonials = dynamic(() => import('./Testimonials'), { ssr: false });
+const ContactCTA = dynamic(() => import('./ContactCTA'), { ssr: false });
 
 const HomeSection = () => {
   const { name, title, subtitle, description, tagline, cta, highlights } = HERO_CONTENT;
@@ -53,6 +55,7 @@ const HomeSection = () => {
           </motion.div>
         </motion.div>
       </section>
+
       <AboutTeaser />
       <FeaturedProjects />
       <Testimonials />

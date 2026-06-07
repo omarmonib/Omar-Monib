@@ -3,19 +3,25 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import { ThemeProvider } from '@/lib/context/ThemeContext';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '@/components/layout/Footer';
 import ThemeScript from '@/components/layout/ThemeScript';
 import RouteAnnouncer from '@/components/layout/RouteAnnouncer';
+import dynamic from 'next/dynamic';
+const SpeedInsights = dynamic(
+  () => import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights })),
+  { ssr: false }
+);
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
