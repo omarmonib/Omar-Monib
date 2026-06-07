@@ -7,6 +7,8 @@ import HeroContent from './HeroContent';
 import AboutTeaser from './AboutTeaser';
 import FeaturedProjects from './FeaturedProjects';
 import ContactCTA from './ContactCTA';
+import Testimonials from './Testimonials';
+
 
 const HomeSection = () => {
   const { name, title, subtitle, description, tagline, cta, highlights } = HERO_CONTENT;
@@ -51,9 +53,9 @@ const HomeSection = () => {
           </motion.div>
         </motion.div>
       </section>
-
       <AboutTeaser />
       <FeaturedProjects />
+      <Testimonials />
       <ContactCTA />
     </>
   );
