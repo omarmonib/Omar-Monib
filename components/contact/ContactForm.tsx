@@ -7,8 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { useContactForm } from '@/hooks/useContactForm';
-
+import  { useContactForm }  from '@/hooks/useContactForm';
 const ContactForm = () => {
   const { form, onSubmit, submitted, serverError, isSubmitting } = useContactForm();
   const {
@@ -24,6 +23,7 @@ const ContactForm = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
         onSubmit={handleSubmit(onSubmit)}
+        noValidate
       >
         <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-foreground">
           Send Me a Message
@@ -40,11 +40,11 @@ const ContactForm = () => {
               placeholder="Your name"
               aria-describedby={errors.name ? 'name-error' : undefined}
               aria-invalid={!!errors.name}
-              {...register('name')}
               disabled={isSubmitting}
+              {...register('name')}
             />
             {errors.name && (
-              <p id="name-error" className="text-xs text-red-500">
+              <p id="name-error" role="alert" className="text-xs text-red-500">
                 {errors.name.message}
               </p>
             )}
@@ -61,11 +61,11 @@ const ContactForm = () => {
               placeholder="your.email@example.com"
               aria-describedby={errors.email ? 'email-error' : undefined}
               aria-invalid={!!errors.email}
-              {...register('email')}
               disabled={isSubmitting}
+              {...register('email')}
             />
             {errors.email && (
-              <p id="email-error" className="text-xs text-red-500">
+              <p id="email-error" role="alert" className="text-xs text-red-500">
                 {errors.email.message}
               </p>
             )}
@@ -82,12 +82,12 @@ const ContactForm = () => {
               rows={5}
               aria-describedby={errors.message ? 'message-error' : undefined}
               aria-invalid={!!errors.message}
-              {...register('message')}
-              className="resize-none"
               disabled={isSubmitting}
+              className="resize-none"
+              {...register('message')}
             />
             {errors.message && (
-              <p id="message-error" className="text-xs text-red-500">
+              <p id="message-error" role="alert" className="text-xs text-red-500">
                 {errors.message.message}
               </p>
             )}
@@ -123,7 +123,7 @@ const ContactForm = () => {
               type="submit"
               size="lg"
               disabled={isSubmitting}
-              className="w-full text-base font-semibold"
+              className="w-full text-base font-semibold transition-all duration-300"
             >
               {isSubmitting ? (
                 <motion.span
@@ -139,7 +139,7 @@ const ContactForm = () => {
           </motion.div>
 
           <p className="text-xs text-muted text-center pt-2">
-            I&apos;ll respond within 24-48 hours
+            I&apos;ll respond within 24–48 hours
           </p>
         </div>
       </motion.form>

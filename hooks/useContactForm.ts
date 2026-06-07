@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import type { ContactApiResponse } from '@/types/contact';
 
@@ -17,23 +18,19 @@ export function useContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  const form = useForm<ContactFormData>();
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    mode: 'onTouched', // validate on blur, then live on change after first touch
+  });
+
   const {
-    setError,
     reset,
     formState: { isSubmitting },
   } = form;
 
   const onSubmit = async (data: ContactFormData) => {
+    // No manual safeParse needed — zodResolver already validated
     setServerError(null);
-
-    const result = contactSchema.safeParse(data);
-    if (!result.success) {
-      result.error.errors.forEach((err) => {
-        setError(err.path[0] as keyof ContactFormData, { message: err.message });
-      });
-      return;
-    }
 
     try {
       const res = await fetch('/api/contact', {
