@@ -8,6 +8,8 @@ import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
 import ProjectMockup from '@/components/projects/ProjectMockup';
 
+const BASE_URL = 'https://omar-monib.vercel.app';
+
 const iconMap: Record<string, LucideIcon> = {
   'shopping-cart': ShoppingCart,
   'shopping-bag': ShoppingBag,
@@ -29,6 +31,21 @@ export async function generateMetadata({ params }: ProjectDetailsPageProps) {
   return {
     title: project ? `${project.title} | Omar Monib` : 'Project Not Found',
     description: project?.shortDescription,
+    openGraph: project
+      ? {
+          title: `${project.title} | Omar Monib`,
+          description: project.shortDescription,
+          url: `${BASE_URL}/projects/${project.slug}`,
+          images: [
+            {
+              url: project.image.startsWith('/') ? `${BASE_URL}${project.image}` : project.image,
+              width: 1200,
+              height: 630,
+              alt: project.title,
+            },
+          ],
+        }
+      : undefined,
   };
 }
 
@@ -41,8 +58,39 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
   const { title, techs, features, shortDescription, fullDescription, whyItMatters, icon } = project;
   const Icon = iconMap[icon ?? 'user'] ?? User;
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Projects',
+        item: `${BASE_URL}/projects`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `${BASE_URL}/projects/${slug}`,
+      },
+    ],
+  };
+
   return (
     <section className="max-w-5xl mx-auto py-16 px-6 space-y-10">
+      {/* ── JSON-LD ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* ── HEADER ── */}
       <div className="space-y-4">
         <Link
@@ -82,7 +130,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
       {/* ── MOCKUP ── */}
       <div className="w-full max-w-3xl mx-auto">
-        <ProjectMockup project={project} />
+        <ProjectMockup project={project} priority />
       </div>
 
       {/* ── TECH STACK ── */}
