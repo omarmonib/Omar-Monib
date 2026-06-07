@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/lib/context/ThemeContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '@/components/layout/Footer';
 import ThemeScript from '@/components/layout/ThemeScript';
+import RouteAnnouncer from '@/components/layout/RouteAnnouncer';
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -73,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <ThemeProvider>
           <Navbar />
+          <RouteAnnouncer />
           <main id="main-content">{children}</main>
           <Footer />
           <SpeedInsights />
