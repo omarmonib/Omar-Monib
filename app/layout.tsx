@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import { ThemeProvider } from '@/lib/context/ThemeContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '@/components/layout/Footer';
+import ThemeScript from '@/components/layout/ThemeScript';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -59,7 +60,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html data-scroll-behavior="smooth" lang="en">
+    <html data-scroll-behavior="smooth" lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <a
           href="#main-content"
@@ -69,9 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <ThemeProvider>
           <Navbar />
-          <main id="main-content">
-            {children}
-          </main>
+          <main id="main-content">{children}</main>
           <Footer />
           <SpeedInsights />
         </ThemeProvider>

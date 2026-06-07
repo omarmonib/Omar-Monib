@@ -3,9 +3,20 @@
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Render a placeholder with identical dimensions so layout doesn't shift
+  if (!mounted) {
+    return <div className="w-8 h-8" aria-hidden="true" />;
+  }
 
   return (
     <button

@@ -19,13 +19,13 @@ export default function ProjectsGrid() {
       animate="show"
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8"
     >
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <motion.div
           key={project.id}
           variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
           className="h-full"
         >
-          <ProjectCard project={project} />
+          <ProjectCard project={project} priority={index === 0} />
         </motion.div>
       ))}
     </motion.div>
