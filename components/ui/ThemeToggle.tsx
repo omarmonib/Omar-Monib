@@ -3,17 +3,23 @@
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
+
+// useSyncExternalStore with identical server and client snapshots
+// until hydration is complete — then returns true on client only.
+// Zero setState, zero useEffect, zero lint errors.
+function useIsMounted(): boolean {
+  return useSyncExternalStore(
+    () => () => {}, // subscribe: no external store, never changes
+    () => true, // getSnapshot (client): mounted
+    () => false // getServerSnapshot: not mounted
+  );
+}
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsMounted();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Render a placeholder with identical dimensions so layout doesn't shift
   if (!mounted) {
     return <div className="w-8 h-8" aria-hidden="true" />;
   }
