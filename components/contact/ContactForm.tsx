@@ -1,72 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { FiCheck, FiX } from 'react-icons/fi';
-import { useState } from 'react';
 
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import type { ContactApiResponse } from '@/types/contact';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { useContactForm } from '@/hooks/useContactForm';
 
 const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [serverError, setServerError] = useState<string | null>(null);
-
+  const { form, onSubmit, submitted, serverError, isSubmitting } = useContactForm();
   const {
     register,
     handleSubmit,
-    reset,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm<ContactFormData>();
+    formState: { errors },
+  } = form;
 
-  const onSubmit = async (data: ContactFormData) => {
-    setServerError(null);
-
-    // Manual Zod validation
-    const result = contactSchema.safeParse(data);
-    if (!result.success) {
-      result.error.errors.forEach((err) => {
-        setError(err.path[0] as keyof ContactFormData, {
-          message: err.message,
-        });
-      });
-      return;
-    }
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      const response: ContactApiResponse = await res.json();
-
-      if (!res.ok || !response.success) {
-        setServerError(response.error ?? 'Something went wrong. Please try again.');
-        return;
-      }
-
-      setSubmitted(true);
-      reset();
-      setTimeout(() => setSubmitted(false), 4000);
-    } catch {
-      setServerError('Something went wrong. Please try again.');
-    }
-  };
   return (
     <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-border-accent/20 hover:border-accent/50 bg-card p-10">
       <motion.form
@@ -81,32 +31,27 @@ const ContactForm = () => {
 
         <div className="space-y-6">
           {/* NAME */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+          <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium">
               Full Name *
             </Label>
             <Input
               id="name"
               placeholder="Your name"
+              aria-describedby={errors.name ? 'name-error' : undefined}
+              aria-invalid={!!errors.name}
               {...register('name')}
-              className="transition-all duration-200"
               disabled={isSubmitting}
             />
-            {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
-          </motion.div>
+            {errors.name && (
+              <p id="name-error" className="text-xs text-red-500">
+                {errors.name.message}
+              </p>
+            )}
+          </div>
 
           {/* EMAIL */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-          >
+          <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-medium">
               Email Address *
             </Label>
@@ -114,20 +59,20 @@ const ContactForm = () => {
               id="email"
               type="email"
               placeholder="your.email@example.com"
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              aria-invalid={!!errors.email}
               {...register('email')}
-              className="transition-all duration-200"
               disabled={isSubmitting}
             />
-            {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
-          </motion.div>
+            {errors.email && (
+              <p id="email-error" className="text-xs text-red-500">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
 
           {/* MESSAGE */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
+          <div className="space-y-2">
             <Label htmlFor="message" className="text-sm font-medium">
               Your Message *
             </Label>
@@ -135,12 +80,18 @@ const ContactForm = () => {
               id="message"
               placeholder="Tell me about your project or how I can help..."
               rows={5}
+              aria-describedby={errors.message ? 'message-error' : undefined}
+              aria-invalid={!!errors.message}
               {...register('message')}
-              className="transition-all duration-200 resize-none"
+              className="resize-none"
               disabled={isSubmitting}
             />
-            {errors.message && <p className="text-xs text-red-500">{errors.message.message}</p>}
-          </motion.div>
+            {errors.message && (
+              <p id="message-error" className="text-xs text-red-500">
+                {errors.message.message}
+              </p>
+            )}
+          </div>
 
           {/* SERVER ERROR */}
           {serverError && (
@@ -172,7 +123,7 @@ const ContactForm = () => {
               type="submit"
               size="lg"
               disabled={isSubmitting}
-              className="w-full text-base font-semibold transition-all duration-300"
+              className="w-full text-base font-semibold"
             >
               {isSubmitting ? (
                 <motion.span

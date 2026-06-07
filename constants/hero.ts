@@ -1,13 +1,14 @@
 export const HERO_CONTENT = {
   name: 'Omar Monib',
-  title: 'Frontend Developer · React & Next.js Specialist',
-  subtitle: '7 Years Engineering at Vodafone · 3 Years Frontend Development',
+  title: 'Frontend Developer & Network Engineer',
+  subtitle: '6+ Years Network Engineering • 2+ Years Frontend Development',
+  tagline: 'Electronics & Communications Engineer • Vodafone • Freelance Developer',
   description:
     "I build fast, production-grade web apps with React and Next.js — with a reliability mindset from 7 years of network engineering at Vodafone that most frontend developers don't have.",
-  tagline: '',
   cta: {
     projects: 'View My Work',
     contact: 'Get in Touch',
+    cv: 'Download CV',
   },
   highlights: [
     'React & Next.js Specialist',
