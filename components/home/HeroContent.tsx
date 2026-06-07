@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
   cta: {
     projects: string;
     contact?: string;
+    cv?: string;
   };
   highlights?: readonly string[];
 }
@@ -25,6 +27,20 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="text-center md:text-left space-y-5"
     >
+      {/* Availability badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.4 }}
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium"
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+        </span>
+        Available for freelance &amp; full-time · Remote / Hybrid / On-site
+      </motion.div>
+
       {/* Name */}
       <h1 className="text-4xl md:text-7xl font-bold leading-tight">
         Hi, I am <br />
@@ -46,7 +62,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
         {description}
       </p>
 
-      {/* Tagline — muted, smaller */}
+      {/* Tagline */}
       {tagline && tagline.length > 0 && (
         <p className="text-xs md:text-sm text-muted-foreground/50 font-medium italic">{tagline}</p>
       )}
@@ -69,13 +85,23 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       )}
 
       {/* CTAs */}
-      <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 justify-center md:justify-start pt-3">
-        {/* Primary CTA */}
+      <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 justify-center md:justify-start pt-3 flex-wrap">
+        {/* Primary — View Work */}
         <Button asChild size="lg" variant="custom">
           <Link href="/projects">{cta.projects}</Link>
         </Button>
 
-        {/* Ghost text link */}
+        {/* Secondary — Download CV */}
+        {cta.cv && (
+          <Button asChild size="lg" variant="customOutline">
+            <a href="/cv.pdf" download>
+              <Download className="w-4 h-4" />
+              {cta.cv}
+            </a>
+          </Button>
+        )}
+
+        {/* Tertiary text link — Contact */}
         {cta.contact && (
           <Link
             href="/contact"

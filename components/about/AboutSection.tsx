@@ -9,7 +9,6 @@ import AboutIntro from '@/components/about/AboutIntro';
 import SkillsList from '@/components/about/SkillsList';
 import AboutStats from '@/components/about/AboutStats';
 import AboutTimeline from '@/components/about/AboutTimeline';
-import AvailabilityBadge from '@/components/about/AvailabilityBadge';
 import AboutExtras from '@/components/about/AboutExtras';
 
 const AboutSection = () => {
@@ -43,7 +42,6 @@ const AboutSection = () => {
             <h3 className="text-lg font-semibold text-foreground">Omar Monib</h3>
             <p className="text-sm text-muted-foreground">Frontend Developer & Network Engineer</p>
           </div>
-          <AvailabilityBadge />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
