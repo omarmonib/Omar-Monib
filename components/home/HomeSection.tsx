@@ -41,11 +41,11 @@ const HomeSection = () => {
           transition={{ delay: 1, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-muted-foreground/50 uppercase tracking-widest">Scroll</span>
+          <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-muted-foreground/30 flex items-start justify-center pt-1.5"
+            className="w-5 h-8 rounded-full border border-muted-foreground flex items-start justify-center pt-1.5"
           >
             <motion.div
               animate={{ opacity: [1, 0, 1], y: [0, 6, 0] }}

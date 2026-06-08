@@ -48,7 +48,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
       <div>
         <h2 className="text-lg md:text-2xl font-semibold text-accent mb-1">{title}</h2>
         {subtitle && (
-          <p className="text-sm md:text-base font-medium text-muted-foreground/70">{subtitle}</p>
+          <p className="text-sm md:text-base font-medium text-muted-foreground">{subtitle}</p>
         )}
       </div>
 
@@ -59,7 +59,7 @@ const HeroContent = ({ name, title, subtitle, description, tagline, cta, highlig
 
       {/* Tagline */}
       {tagline && tagline.length > 0 && (
-        <p className="text-xs md:text-sm text-muted-foreground/50 font-medium italic">{tagline}</p>
+        <p className="text-xs md:text-sm text-muted-foreground font-medium italic">{tagline}</p>
       )}
 
       {/* Highlights — single fade-in, no per-badge animations */}
