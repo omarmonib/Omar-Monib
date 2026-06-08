@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Omar Monib | React & Next.js Frontend Developer',
+    title: 'Omar Monib | React & Next.js Frontend Developer in Egypt',
     description:
       'Frontend Developer with 7 years of engineering experience at Vodafone and 3 years building production-grade web apps with React, Next.js, and TypeScript.',
     images: ['https://omar-monib.vercel.app/og-image.png'],
