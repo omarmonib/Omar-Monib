@@ -88,7 +88,7 @@ export const ABOUT_TIMELINE = [
       'Promoted to NFM Maintenance & NOC L1 Engineer at Afro Egypt (Vodafone Project). Simultaneously began frontend development — building production-grade React and Next.js applications as a freelance developer.',
   },
   {
-    year: '2023',
+    year: '2023 - 2025',
     title: 'Launched Portfolio & Key Projects',
     description:
       'Shipped MonibShop, E-Commerce Admin Dashboard, Nur Al-Iman Islamic Platform, and personal portfolio — demonstrating full-stack frontend capabilities with TypeScript, Zustand, and Next.js App Router.',
