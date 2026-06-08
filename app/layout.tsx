@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Omar Monib' }],
   creator: 'Omar Monib',
   openGraph: {
-    title: 'Omar Monib | React & Next.js Frontend Developer',
+    title: 'Omar Monib | React & Next.js Frontend Developer in Egypt',
     description:
       'Frontend Developer with 7 years of engineering experience at Vodafone and 3 years building production-grade web apps with React, Next.js, and TypeScript.',
     url: 'https://omar-monib.vercel.app',
