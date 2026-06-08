@@ -6,11 +6,8 @@ import { ThemeProvider } from '@/lib/context/ThemeContext';
 import Footer from '@/components/layout/Footer';
 import ThemeScript from '@/components/layout/ThemeScript';
 import RouteAnnouncer from '@/components/layout/RouteAnnouncer';
-import dynamic from 'next/dynamic';
-const SpeedInsights = dynamic(
-  () => import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights })),
-  { ssr: false }
-);
+import SpeedInsightsLoader from '@/components/layout/SpeedInsightsLoader';
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -135,7 +132,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <RouteAnnouncer />
           <main id="main-content">{children}</main>
           <Footer />
-          <SpeedInsights />
+          <SpeedInsightsLoader />
         </ThemeProvider>
       </body>
     </html>

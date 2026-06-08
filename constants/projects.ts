@@ -20,15 +20,15 @@ const PROJECTS_DATA: Record<string, Project> = {
       '👤 Users Management — role-based access control',
       '💳 Payments Management — transaction history with filters',
       '📊 Dashboard Analytics — real-time charts via Recharts',
-      '🎨 Modern UI (shadcn/ui + Dark/Light mode) — 100/100 Lighthouse accessibility score',
+      '🎨 Modern UI (shadcn/ui + Dark/Light mode) — 88/100 Lighthouse accessibility score',
       '🧱 Reusable & scalable architecture — 40% less boilerplate vs class-based patterns',
     ],
     shortDescription:
-      'Admin dashboard for an E-Commerce platform built with Next.js 14 App Router. Achieves 95+ Lighthouse performance score with full product, user, and payment management in a responsive UI.',
+      'Admin dashboard for an E-Commerce platform built with Next.js 14 App Router. Scores 91 on Lighthouse performance (mobile) with full product, user, and payment management in a responsive UI.',
     fullDescription:
-      'A fully functional E-Commerce Admin Dashboard designed for managing an online store at scale. Administrators can manage products, users, and payments, view analytics through interactive charts, and interact with structured data tables. Built with Next.js 14 App Router, TypeScript, and shadcn/ui — achieving a 95+ Lighthouse performance score and a 100/100 accessibility score. The component architecture reduces feature development time by reusing 12+ shared UI primitives.',
+      'A fully functional E-Commerce Admin Dashboard designed for managing an online store at scale. Administrators can manage products, users, and payments, view analytics through interactive charts, and interact with structured data tables. Built with Next.js 14 App Router, TypeScript, and shadcn/ui — achieving a 91/100 Lighthouse performance score and 96/100 Best Practices on mobile. The component architecture reduces feature development time by reusing 12+ shared UI primitives.',
     whyItMatters:
-      'Demonstrates production-level frontend architecture: real-time data visualization, scalable component design, and an accessibility-first approach. The 95+ Lighthouse score shows that visual complexity and performance are not mutually exclusive.',
+      'Demonstrates production-level frontend architecture: real-time data visualization, scalable component design, and a performance-first approach. A 91 Lighthouse performance score on a feature-rich admin dashboard shows that visual complexity and speed are not mutually exclusive.',
     image: '/projects/e-commerce-dashboard.png',
     liveUrl: 'https://admin-e-commerce-seven.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
@@ -59,11 +59,11 @@ const PROJECTS_DATA: Record<string, Project> = {
       '🧱 Clean & scalable frontend architecture — feature-based folder structure',
     ],
     shortDescription:
-      'Modern E-Commerce frontend built with Next.js 14 App Router and Zustand. Cart state persists across sessions, URL-driven filters are fully shareable, and the site scores 92+ on Lighthouse performance.',
+      'Modern E-Commerce frontend built with Next.js 14 App Router and Zustand. Scores 96 on Lighthouse performance (mobile). Cart state persists across sessions and URL-driven filters are fully shareable.',
     fullDescription:
-      'MonibShop is a production-ready E-Commerce frontend that delivers a smooth, fast shopping experience. The cart uses Zustand with localStorage persistence — surviving full page refreshes without re-fetching. All filters and sorting are URL-encoded, making every product view shareable and SEO-indexable. Built with React Hook Form + Zod for type-safe checkout validation. Lighthouse performance score: 92+. First Contentful Paint under 1.2s on a standard 4G connection.',
+      'MonibShop is a production-ready E-Commerce frontend that delivers a smooth, fast shopping experience. The cart uses Zustand with localStorage persistence — surviving full page refreshes without re-fetching. All filters and sorting are URL-encoded, making every product view shareable and SEO-indexable. Built with React Hook Form + Zod for type-safe checkout validation. Lighthouse scores (mobile): Performance 96, Best Practices 96, SEO 100.',
     whyItMatters:
-      'Shows mastery of state management beyond useState: Zustand for global cart state, URL state for filters, and React Hook Form for validated forms. The combination of fast load times and zero data-loss UX patterns demonstrates production-grade thinking.',
+      'Shows mastery of state management beyond useState: Zustand for global cart state, URL state for filters, and React Hook Form for validated forms. A 96 Lighthouse performance score on a fully interactive e-commerce frontend demonstrates that rich UX and fast load times go hand in hand.',
     image: '/projects/e-commerce-monibshop.png',
     liveUrl: 'https://monibshop.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
@@ -81,14 +81,14 @@ const PROJECTS_DATA: Record<string, Project> = {
       '📌 Highlight active Ayah during audio playback — frame-accurate sync via timeupdate events',
       '📰 Dynamic Islamic content (Quran, Azkar, Articles) — statically generated at build time',
       '🎨 Modern RTL-aware UI with Dark/Light mode — fully bidirectional layout',
-      '♿ Accessibility — ARIA live regions for audio state, keyboard navigation throughout',
+      '♿ Accessibility — 96/100 Lighthouse score, ARIA live regions, full keyboard navigation',
     ],
     shortDescription:
-      'Islamic content platform with Quran, Azkar, and audio playback. Statically generated for near-instant loads — First Contentful Paint under 0.8s. Built RTL-first with full keyboard accessibility and active-ayah audio sync.',
+      'Islamic content platform with Quran, Azkar, and audio playback. Scores 96/100 on Lighthouse accessibility (mobile) — highest of all four projects. Built RTL-first with active-ayah audio sync and static generation.',
     fullDescription:
-      'Nur Al-Iman is a content-heavy Islamic web platform serving Quran, Azkar, and educational articles. All 6,236 Quran ayahs are statically generated at build time (Next.js SSG), resulting in sub-800ms First Contentful Paint. The audio player syncs highlighted ayahs to playback position using the Web Audio API timeupdate event — frame-accurate without any polling. The RTL layout is built-first, not retrofitted, using logical CSS properties throughout. Achieves 90+ Lighthouse accessibility score.',
+      'Nur Al-Iman is a content-heavy Islamic web platform serving Quran, Azkar, and educational articles. All 6,236 Quran ayahs are statically generated at build time (Next.js SSG), resulting in fast initial loads. The audio player syncs highlighted ayahs to playback position using the Web Audio API timeupdate event — frame-accurate without any polling. The RTL layout is built-first, not retrofitted, using logical CSS properties throughout. Lighthouse scores (mobile): Performance 85, Accessibility 96, Best Practices 100, SEO 100.',
     whyItMatters:
-      'Demonstrates three advanced capabilities rarely combined: RTL-first layout engineering, Web Audio API integration with UI sync, and static generation of a large content dataset. The 90+ accessibility score on an Arabic-language site shows genuine commitment to inclusive engineering.',
+      'Demonstrates three advanced capabilities rarely combined: RTL-first layout engineering, Web Audio API integration with UI sync, and static generation of a large content dataset. A 96/100 accessibility score on an Arabic-language site — the highest across all four projects — shows genuine commitment to inclusive engineering.',
     image: '/projects/nur-al-iman.png',
     liveUrl: 'https://noor-al-iman-web.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/nur-iman-web',
@@ -103,17 +103,17 @@ const PROJECTS_DATA: Record<string, Project> = {
     features: [
       '🎨 Custom design system — CSS variables + Tailwind v4 theme tokens',
       '📧 Contact form — Resend email delivery + Supabase message storage',
-      '🌗 Theme switching — dark/light with localStorage persistence',
-      '♿ Accessible — skip-to-content, ARIA labels, keyboard navigation',
+      '🌗 Theme switching — dark/light with zero flash-of-unstyled-content',
+      '♿ Accessible — skip-to-content, ARIA labels, keyboard navigation, route announcer',
       '📱 Fully responsive — mobile-first across all breakpoints',
-      '⚡ 93+ Lighthouse performance score on production build',
+      '⚡ 97/100 Lighthouse performance · 94 Accessibility · 100 Best Practices · 100 SEO',
     ],
     shortDescription:
-      'Personal portfolio built with Next.js 14, Tailwind CSS v4, and Framer Motion. Scores 93+ on Lighthouse performance. Contact form delivers via Resend and stores submissions in Supabase. Fully accessible and responsive.',
+      'Personal portfolio built with Next.js, Tailwind CSS v4, and Framer Motion. Scores 97/100 on Lighthouse performance (mobile), LCP 2.4s, CLS 0. Contact form delivers via Resend and stores in Supabase. 93 passing tests.',
     fullDescription:
-      'This portfolio is itself a production-grade Next.js application — not a template. It features a custom Tailwind CSS v4 design system with CSS variable theming, a working contact form backed by Resend (email) and Supabase (storage), animated page transitions with Framer Motion, and a full test suite (93 passing tests). The site achieves a 93+ Lighthouse performance score on the production Vercel deployment.',
+      'This portfolio is itself a production-grade Next.js application — not a template. It features a custom Tailwind CSS v4 design system with CSS variable theming, a working contact form backed by Resend (email) and Supabase (storage), animated page transitions with Framer Motion, and a full test suite (93 passing tests). Lighthouse scores (mobile): Performance 97, Accessibility 94, Best Practices 100, SEO 100. LCP 2.4s, CLS 0, TBT near zero.',
     whyItMatters:
-      'A portfolio that practices what it preaches: the same standards applied to client projects — testing, accessibility, performance, and real backend integration — are applied here. It is both a showcase and a working demonstration of production engineering habits.',
+      'A portfolio that practices what it preaches: the same standards applied to client projects — testing, accessibility, performance, and real backend integration — are applied here. Perfect scores on Best Practices and SEO, 97 on Performance, and a working backend make this a demonstration of production engineering habits, not just a showcase.',
     image: '/projects/omar-monib.png',
     liveUrl: 'https://omar-monib.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Omar-Monib',
