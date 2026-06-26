@@ -1,37 +1,6 @@
 import type { Project } from '@/types/project';
 
 const PROJECTS_DATA: Record<string, Project> = {
-  taqsak: {
-    id: 6,
-    slug: 'taqsak',
-    icon: 'cloud',
-    title: 'Taqsak — Weather App',
-    techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'OpenWeatherMap'],
-    features: [
-      '🌍 Multi-language support (Arabic, English, French, Spanish) with RTL/LTR',
-      '🗺️ Interactive map with weather overlay layers',
-      '📊 Temperature, wind, and humidity charts (Recharts)',
-      '⏰ Hourly (24h) and 7-day forecast',
-      '☀️ UV Index & Heat Index via Open-Meteo',
-      '📍 Geolocation-based weather detection',
-      '🆚 Compare up to 4 cities side by side',
-      '📱 PWA — installable on mobile and desktop',
-      '🎨 Weather-reactive animated backgrounds',
-    ],
-    shortDescription:
-      'A bilingual Arabic/English weather forecast app with interactive maps, charts, city comparison, and PWA support — built with Next.js and OpenWeatherMap.',
-    fullDescription:
-      'Taqsak (طقسك) is a modern weather web application delivering real-time forecasts in four languages with full RTL support. It combines current conditions, hourly and 7-day forecasts, interactive Leaflet maps with precipitation and wind overlays, and Recharts-powered trend visualizations into a single polished experience. Users can detect their location, save favorites, compare multiple cities, and install the app as a PWA.',
-    whyItMatters:
-      'Demonstrates building a data-rich, internationalized application with third-party API integration, interactive maps, accessibility-aware RTL layout, and PWA capabilities — all in a production-deployed Next.js codebase.',
-    image: {
-      light: '/projects/taqsak-light.png',
-      dark: '/projects/taqsak-dark.png',
-    },
-    liveUrl: 'https://taqsak.vercel.app',
-    githubUrl: 'https://github.com/omarmonib/taqsak',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'PWA'],
-  },
   'ecommerce-admin': {
     id: 1,
     slug: 'ecommerce-admin',
@@ -63,7 +32,7 @@ const PROJECTS_DATA: Record<string, Project> = {
     image: '/projects/e-commerce-dashboard.png',
     liveUrl: 'https://admin-e-commerce-seven.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
-    tags: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'Framer Motion'],
+    tags: ['Next.js', 'TypeScript', 'shadcn/ui', 'Framer Motion'],
   },
   'monib-shop': {
     id: 2,
@@ -98,7 +67,38 @@ const PROJECTS_DATA: Record<string, Project> = {
     image: '/projects/e-commerce-monibshop.png',
     liveUrl: 'https://monibshop.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
-    tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Hook Form'],
+    tags: ['Next.js 14', 'TypeScript', 'Zustand', 'React Hook Form'],
+  },
+  taqsak: {
+    id: 6,
+    slug: 'taqsak',
+    icon: 'cloud',
+    title: 'Taqsak — Weather App',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'OpenWeatherMap'],
+    features: [
+      '🌍 Multi-language support (Arabic, English, French, Spanish) with RTL/LTR',
+      '🗺️ Interactive map with weather overlay layers',
+      '📊 Temperature, wind, and humidity charts (Recharts)',
+      '⏰ Hourly (24h) and 7-day forecast',
+      '☀️ UV Index & Heat Index via Open-Meteo',
+      '📍 Geolocation-based weather detection',
+      '🆚 Compare up to 4 cities side by side',
+      '📱 PWA — installable on mobile and desktop',
+      '🎨 Weather-reactive animated backgrounds',
+    ],
+    shortDescription:
+      'A bilingual Arabic/English weather forecast app with interactive maps, charts, city comparison, and PWA support — built with Next.js and OpenWeatherMap.',
+    fullDescription:
+      'Taqsak (طقسك) is a modern weather web application delivering real-time forecasts in four languages with full RTL support. It combines current conditions, hourly and 7-day forecasts, interactive Leaflet maps with precipitation and wind overlays, and Recharts-powered trend visualizations into a single polished experience. Users can detect their location, save favorites, compare multiple cities, and install the app as a PWA.',
+    whyItMatters:
+      'Demonstrates building a data-rich, internationalized application with third-party API integration, interactive maps, accessibility-aware RTL layout, and PWA capabilities — all in a production-deployed Next.js codebase.',
+    image: {
+      light: '/projects/taqsak-light.png',
+      dark: '/projects/taqsak-dark.png',
+    },
+    liveUrl: 'https://taqsak.vercel.app',
+    githubUrl: 'https://github.com/omarmonib/taqsak',
+    tags: ['Next.js', 'TypeScript', 'Recharts', 'PWA'],
   },
   'nur-al-iman': {
     id: 4,
@@ -157,7 +157,10 @@ const PROJECTS_DATA: Record<string, Project> = {
       'This portfolio is itself a production-grade Next.js application — not a template. It features a custom Tailwind CSS v4 design system with CSS variable theming, a working contact form backed by Resend (email) and Supabase (storage), animated page transitions with Framer Motion, and a full test suite (93 passing tests). Lighthouse scores (mobile): Performance 97, Accessibility 94, Best Practices 100, SEO 100. LCP 2.4s, CLS 0, TBT near zero.',
     whyItMatters:
       'A portfolio that practices what it preaches: the same standards applied to client projects — testing, accessibility, performance, and real backend integration — are applied here. Perfect scores on Best Practices and SEO, 97 on Performance, and a working backend make this a demonstration of production engineering habits, not just a showcase.',
-    image: '/projects/omar-monib.png',
+    image: {
+      light: '/projects/omar-monib-light.png',
+      dark: '/projects/omar-monib-dark.png',
+    },
     liveUrl: 'https://omar-monib.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/Omar-Monib',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase'],
