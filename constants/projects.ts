@@ -1,6 +1,37 @@
 import type { Project } from '@/types/project';
 
 const PROJECTS_DATA: Record<string, Project> = {
+  taqsak: {
+    id: 6,
+    slug: 'taqsak',
+    icon: 'cloud',
+    title: 'Taqsak — Weather App',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'OpenWeatherMap'],
+    features: [
+      '🌍 Multi-language support (Arabic, English, French, Spanish) with RTL/LTR',
+      '🗺️ Interactive map with weather overlay layers',
+      '📊 Temperature, wind, and humidity charts (Recharts)',
+      '⏰ Hourly (24h) and 7-day forecast',
+      '☀️ UV Index & Heat Index via Open-Meteo',
+      '📍 Geolocation-based weather detection',
+      '🆚 Compare up to 4 cities side by side',
+      '📱 PWA — installable on mobile and desktop',
+      '🎨 Weather-reactive animated backgrounds',
+    ],
+    shortDescription:
+      'A bilingual Arabic/English weather forecast app with interactive maps, charts, city comparison, and PWA support — built with Next.js and OpenWeatherMap.',
+    fullDescription:
+      'Taqsak (طقسك) is a modern weather web application delivering real-time forecasts in four languages with full RTL support. It combines current conditions, hourly and 7-day forecasts, interactive Leaflet maps with precipitation and wind overlays, and Recharts-powered trend visualizations into a single polished experience. Users can detect their location, save favorites, compare multiple cities, and install the app as a PWA.',
+    whyItMatters:
+      'Demonstrates building a data-rich, internationalized application with third-party API integration, interactive maps, accessibility-aware RTL layout, and PWA capabilities — all in a production-deployed Next.js codebase.',
+    image: {
+      light: '/projects/taqsak-light.png',
+      dark: '/projects/taqsak-dark.png',
+    },
+    liveUrl: 'https://taqsak.vercel.app',
+    githubUrl: 'https://github.com/omarmonib/taqsak',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'PWA'],
+  },
   'ecommerce-admin': {
     id: 1,
     slug: 'ecommerce-admin',

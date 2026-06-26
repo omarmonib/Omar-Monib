@@ -1,8 +1,5 @@
 import type { Project } from '@/types/project';
 
-/**
- * Validates if an object is a valid Project
- */
 export const isValidProject = (data: unknown): data is Project => {
   if (!data || typeof data !== 'object') return false;
 
@@ -21,27 +18,32 @@ export const isValidProject = (data: unknown): data is Project => {
     'githubUrl',
   ];
 
-  return (
-    requiredFields.every((field) => field in project) &&
-    typeof project.id === 'number' &&
-    typeof project.slug === 'string' &&
-    typeof project.title === 'string' &&
-    Array.isArray(project.tags) &&
-    Array.isArray(project.techs) &&
-    Array.isArray(project.features)
-  );
+  if (!requiredFields.every((field) => field in project)) return false;
+  if (typeof project.id !== 'number') return false;
+  if (typeof project.slug !== 'string') return false;
+  if (typeof project.title !== 'string') return false;
+  if (!Array.isArray(project.tags)) return false;
+  if (!Array.isArray(project.techs)) return false;
+  if (!Array.isArray(project.features)) return false;
+
+  const image = project.image;
+  if (typeof image === 'string') {
+    if (!image.startsWith('/')) return false;
+  } else if (typeof image === 'object' && image !== null) {
+    const img = image as Record<string, unknown>;
+    if (typeof img.light !== 'string' || !img.light.startsWith('/')) return false;
+    if (typeof img.dark !== 'string' || !img.dark.startsWith('/')) return false;
+  } else {
+    return false;
+  }
+
+  return true;
 };
 
-/**
- * Validates a list of projects
- */
 export const validateProjects = (projects: unknown[]): projects is Project[] => {
   return Array.isArray(projects) && projects.every(isValidProject);
 };
 
-/**
- * Validates URLs
- */
 export const isValidUrl = (url: string): boolean => {
   try {
     new URL(url);
@@ -51,11 +53,11 @@ export const isValidUrl = (url: string): boolean => {
   }
 };
 
-/**
- * Validates project URLs
- */
 export const validateProjectUrls = (project: Project): boolean => {
-  return (
-    isValidUrl(project.liveUrl) && isValidUrl(project.githubUrl) && project.image.startsWith('/') // Local image path
-  );
+  const imageValid =
+    typeof project.image === 'string'
+      ? project.image.startsWith('/')
+      : project.image.light.startsWith('/') && project.image.dark.startsWith('/');
+
+  return isValidUrl(project.liveUrl) && isValidUrl(project.githubUrl) && imageValid;
 };

@@ -17,11 +17,11 @@ const HomeSection = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center relative overflow-hidden">
+      <section className="min-h-screen flex items-center relative overflow-hidden pb-20 md:pb-0">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6 w-full">
+        <div className="relative z-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6 w-full pt-8 md:pt-0">
           <HeroContent
             name={name}
             title={title}
@@ -39,7 +39,7 @@ const HomeSection = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden sm:flex"
         >
           <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
           <motion.div

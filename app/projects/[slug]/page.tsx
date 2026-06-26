@@ -38,7 +38,12 @@ export async function generateMetadata({ params }: ProjectDetailsPageProps) {
           url: `${BASE_URL}/projects/${project.slug}`,
           images: [
             {
-              url: project.image.startsWith('/') ? `${BASE_URL}${project.image}` : project.image,
+              url:
+                typeof project.image === 'string'
+                  ? project.image.startsWith('/')
+                    ? `${BASE_URL}${project.image}`
+                    : project.image
+                  : `${BASE_URL}${project.image.light}`,
               width: 1200,
               height: 630,
               alt: project.title,
@@ -130,7 +135,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
       {/* ── MOCKUP ── */}
       <div className="w-full max-w-3xl mx-auto">
-        <ProjectMockup project={project} priority />
+        <ProjectMockup project={project} />
       </div>
 
       {/* ── TECH STACK ── */}

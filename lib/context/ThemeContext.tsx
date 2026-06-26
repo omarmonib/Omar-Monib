@@ -12,27 +12,34 @@ export const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 });
 
-function getInitialTheme(): 'light' | 'dark' {
-  // Server: always return 'light' so SSR HTML matches
-  if (typeof window === 'undefined') return 'light';
-  // Client: read what the blocking script already set on <html>
-  // This runs once during hydration — no setState, no double render
-  const attr = document.documentElement.getAttribute('data-theme');
-  return attr === 'dark' ? 'dark' : 'light';
-}
-
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>(getInitialTheme);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Only syncs external systems (DOM + localStorage) — no setState here
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+
+    const stored = localStorage.getItem('theme') as 'light' | 'dark';
+    if (stored) {
+      setTheme(stored);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const root = document.documentElement;
     root.setAttribute('data-theme', theme);
+    root.classList.toggle('dark', theme === 'dark');
     root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+
     localStorage.setItem('theme', theme);
-  }, [theme]);
+  }, [theme, mounted]);
 
   const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+
+  if (!mounted) return <>{children}</>;
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };

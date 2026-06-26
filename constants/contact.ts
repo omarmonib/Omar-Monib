@@ -2,7 +2,7 @@
  * Social media and contact information
  */
 export const CONTACT_INFO = {
-  email: 'omar.monib91@gmail.com',
+  email: 'omar.monib.03@gmail.com',
   phone: '+201010094107',
   location: 'Egypt',
 } as const;

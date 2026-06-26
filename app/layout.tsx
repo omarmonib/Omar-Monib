@@ -90,7 +90,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Omar Monib',
   url: 'https://omar-monib.vercel.app',
-  email: 'omar.monib91@gmail.com',
+  email: 'omar.monib.03@gmail.com',
   jobTitle: 'Frontend Developer',
   description:
     'Frontend Developer specializing in React and Next.js with 7+ years of network engineering experience at Vodafone.',
