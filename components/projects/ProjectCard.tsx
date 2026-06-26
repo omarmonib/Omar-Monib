@@ -9,7 +9,7 @@ import type { Project } from '@/types/project';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import ProjectMockup from '@/components/projects/ProjectMockup';
 
-export default function ProjectCard({ project, priority = false }: { project: Project; priority?: boolean }) {
+export default function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
       whileHover={{ y: -4, scale: 1.02 }}
@@ -19,7 +19,7 @@ export default function ProjectCard({ project, priority = false }: { project: Pr
       <Card className="group rounded-xl border shadow-md flex flex-col h-full overflow-hidden">
         {/* MOCKUP + DESKTOP OVERLAY */}
         <div className="relative w-full pt-4 px-4 bg-background-secondary rounded-t-xl overflow-hidden">
-          <ProjectMockup project={project} priority={priority} />
+          <ProjectMockup project={project} />
 
           {/* DESKTOP OVERLAY — covers full mockup area */}
           <div className="absolute inset-0 hidden md:flex items-center justify-center bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-t-xl">

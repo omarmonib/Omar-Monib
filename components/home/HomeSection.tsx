@@ -39,7 +39,7 @@ const HomeSection = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden sm:flex"
+          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex sm:flex-col items-center gap-2"
         >
           <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
           <motion.div
