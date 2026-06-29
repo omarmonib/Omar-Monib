@@ -165,6 +165,53 @@ const PROJECTS_DATA: Record<string, Project> = {
     githubUrl: 'https://github.com/omarmonib/Omar-Monib',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase'],
   },
+  flux: {
+    id: 7,
+    slug: 'flux',
+    icon: 'notebook',
+    title: 'Flux — Modern Task Manager',
+    techs: [
+      'Next.js 16',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Prisma 7',
+      'PostgreSQL (Neon)',
+      'NextAuth.js v5',
+      'TanStack Query',
+      'Framer Motion',
+      'dnd-kit',
+      'Upstash Redis',
+    ],
+    features: [
+      '✅ Complete task management (CRUD) with optimistic UI updates',
+      '📋 Kanban board with drag & drop powered by dnd-kit',
+      '🏷️ Tags, subtasks, priorities, due dates, filtering, sorting, and bulk actions',
+      '⚡ TanStack Query caching with instant optimistic updates and background refetching',
+      '🔐 Secure authentication using NextAuth v5, Prisma, JWT sessions, and protected routes',
+      '🚦 Rate limiting via Upstash Redis (30 requests/min) with custom error handling',
+      '🌙 Responsive dark/light mode with Framer Motion animations and skeleton loading states',
+      '🛡️ Production-ready architecture with Prisma 7, PostgreSQL (Neon), custom error boundaries, and App Router',
+    ],
+    shortDescription:
+      'Production-ready task management application built with Next.js 16, Prisma 7, and PostgreSQL. Features Kanban drag & drop, optimistic updates, authentication, rate limiting, and a fully responsive modern UI.',
+
+    fullDescription:
+      'Flux is a full-stack productivity application designed with production-grade architecture in mind. Built on Next.js 16 App Router, Prisma 7, and PostgreSQL (Neon), it delivers complete task management including Kanban drag-and-drop, subtasks, priorities, tags, advanced filtering, bulk actions, and inline editing. Authentication is powered by NextAuth v5 with JWT sessions, while TanStack Query provides optimistic updates and intelligent caching. The application also integrates Upstash Redis for API rate limiting and Framer Motion for polished interactions, resulting in a fast, responsive, and scalable user experience.',
+
+    whyItMatters:
+      'Demonstrates modern full-stack engineering using the latest Next.js ecosystem. The project showcases authentication, database modeling, API design, optimistic UI patterns, drag-and-drop interactions, caching, rate limiting, and production-ready architecture—making it a strong example of building scalable SaaS-style applications.',
+
+    image: {
+      light: '/projects/flux-light.png',
+      dark: '/projects/flux-dark.png',
+    },
+
+    liveUrl: 'https://flux-todo-list.vercel.app',
+
+    githubUrl: 'https://github.com/omarmonib/Flux-todo-list',
+
+    tags: ['Next.js 16', 'Prisma', 'PostgreSQL', 'NextAuth', 'TanStack Query', 'TypeScript'],
+  },
 };
 
 /**

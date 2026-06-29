@@ -1,5 +1,13 @@
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, ShoppingBag, BookOpen, User, ExternalLink, Github } from 'lucide-react';
+import {
+  ShoppingCart,
+  ShoppingBag,
+  BookOpen,
+  User,
+  ExternalLink,
+  Github,
+  NotebookPen,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getProjectBySlug, getAllProjects } from '@/constants/projects';
@@ -14,6 +22,7 @@ const iconMap: Record<string, LucideIcon> = {
   'shopping-cart': ShoppingCart,
   'shopping-bag': ShoppingBag,
   'book-open': BookOpen,
+  'notebook': NotebookPen,
   user: User,
 };
 
@@ -100,7 +109,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
       <div className="space-y-4">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors"
+          className="inline-flex items-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-background shadow hover:bg-primary/90 h-10 rounded-md px-8 text-base font-semibold transition-all duration-300"
         >
           ← Back to Projects
         </Link>
