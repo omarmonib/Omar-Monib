@@ -6,9 +6,8 @@ export interface Project {
   shortDescription: string;
   fullDescription: string;
   whyItMatters: string;
-  image: string | { light: string; dark: string };
-  liveUrl: string;
-  githubUrl: string;
+  image?: string;
+  liveUrl?: string;
   tags: string[];
   techs: string[];
   features: string[];

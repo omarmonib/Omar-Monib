@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
 import { Badge } from '../ui/badge';
 import type { Project } from '@/types/project';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { ExternalLink, Eye } from 'lucide-react';
 import ProjectMockup from '@/components/projects/ProjectMockup';
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -29,16 +29,13 @@ export default function ProjectCard({ project }: { project: Project }) {
                   <Eye className="w-4 h-4" /> View Project
                 </Link>
               </Button>
-              <Button asChild size="sm" variant="customOutline" className="w-full">
-                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" /> Live Demo
-                </Link>
-              </Button>
-              <Button asChild size="sm" variant="customOutline" className="w-full">
-                <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4" /> GitHub Repo
-                </Link>
-              </Button>
+              {project.liveUrl && (
+                <Button asChild size="sm" variant="customOutline" className="w-full">
+                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4" /> Live Demo
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -71,16 +68,13 @@ export default function ProjectCard({ project }: { project: Project }) {
                 <Eye className="w-3 h-3" /> View
               </Link>
             </Button>
-            <Button asChild size="sm" variant="customOutline" className="flex-1 gap-1">
-              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-3 h-3" /> Live
-              </Link>
-            </Button>
-            <Button asChild size="sm" variant="customOutline" className="flex-1 gap-1">
-              <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-3 h-3" /> GitHub
-              </Link>
-            </Button>
+            {project.liveUrl && (
+              <Button asChild size="sm" variant="customOutline" className="flex-1 gap-1">
+                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-3 h-3" /> Live
+                </Link>
+              </Button>
+            )}
           </div>
         </CardFooter>
       </Card>

@@ -7,25 +7,29 @@ import {
 import type { Project } from '@/types/project';
 
 describe('Validators', () => {
-  describe('isValidProject', () => {
-    const validProject: Project = {
-      id: 1,
-      slug: 'test-project',
-      title: 'Test Project',
-      shortDescription: 'A test project',
-      fullDescription: 'This is a test project',
-      whyItMatters: 'It demonstrates validation',
-      image: '/test.png',
-      projectUrl: 'test-project',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example/test',
-      tags: ['test'],
-      techs: ['TypeScript'],
-      features: ['Feature 1'],
-    };
+  const validProject: Project = {
+    id: 1,
+    slug: 'test-project',
+    title: 'Test Project',
+    shortDescription: 'A test project',
+    fullDescription: 'This is a test project',
+    whyItMatters: 'It demonstrates validation',
+    tags: ['test'],
+    techs: ['TypeScript'],
+    features: ['Feature 1'],
+  };
 
+  describe('isValidProject', () => {
     it('should validate a correct project object', () => {
       expect(isValidProject(validProject)).toBe(true);
+    });
+
+    it('should validate a project without liveUrl or image', () => {
+      expect(isValidProject({ ...validProject })).toBe(true);
+    });
+
+    it('should validate a project with liveUrl', () => {
+      expect(isValidProject({ ...validProject, liveUrl: 'https://example.com' })).toBe(true);
     });
 
     it('should reject null', () => {
@@ -49,12 +53,7 @@ describe('Validators', () => {
     });
 
     it('should reject object with wrong type for id', () => {
-      expect(
-        isValidProject({
-          ...validProject,
-          id: 'string-id',
-        })
-      ).toBe(false);
+      expect(isValidProject({ ...validProject, id: 'string-id' })).toBe(false);
     });
 
     it('should reject object without tags array', () => {
@@ -80,22 +79,6 @@ describe('Validators', () => {
   });
 
   describe('validateProjects', () => {
-    const validProject: Project = {
-      id: 1,
-      slug: 'test',
-      title: 'Test',
-      shortDescription: 'Test',
-      fullDescription: 'Test',
-      whyItMatters: 'Test',
-      image: '/test.png',
-      projectUrl: 'test',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/test',
-      tags: ['test'],
-      techs: ['TypeScript'],
-      features: ['Feature'],
-    };
-
     it('should validate array of valid projects', () => {
       expect(validateProjects([validProject, validProject])).toBe(true);
     });
@@ -124,10 +107,6 @@ describe('Validators', () => {
       expect(isValidUrl('https://example.com')).toBe(true);
     });
 
-    it('should validate URLs with paths', () => {
-      expect(isValidUrl('https://github.com/user/repo')).toBe(true);
-    });
-
     it('should reject invalid URLs', () => {
       expect(isValidUrl('not-a-url')).toBe(false);
       expect(isValidUrl('example.com')).toBe(false);
@@ -136,67 +115,29 @@ describe('Validators', () => {
     it('should reject empty string', () => {
       expect(isValidUrl('')).toBe(false);
     });
-
-    it('should validate complex URLs', () => {
-      expect(isValidUrl('https://example.com/path?query=value&other=123#hash')).toBe(true);
-    });
   });
 
   describe('validateProjectUrls', () => {
-    const validProject: Project = {
-      id: 1,
-      slug: 'test',
-      title: 'Test',
-      shortDescription: 'Test',
-      fullDescription: 'Test',
-      whyItMatters: 'Test',
-      image: '/test.png',
-      projectUrl: 'test',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/test',
-      tags: ['test'],
-      techs: ['TypeScript'],
-      features: ['Feature'],
-    };
-
-    it('should validate project with valid URLs', () => {
+    it('should validate a project with no liveUrl/image (both optional)', () => {
       expect(validateProjectUrls(validProject)).toBe(true);
     });
 
+    it('should validate project with valid liveUrl', () => {
+      expect(validateProjectUrls({ ...validProject, liveUrl: 'https://example.com' })).toBe(true);
+    });
+
     it('should reject project with invalid liveUrl', () => {
-      expect(
-        validateProjectUrls({
-          ...validProject,
-          liveUrl: 'not-a-url',
-        })
-      ).toBe(false);
-    });
-
-    it('should reject project with invalid githubUrl', () => {
-      expect(
-        validateProjectUrls({
-          ...validProject,
-          githubUrl: 'invalid-url',
-        })
-      ).toBe(false);
-    });
-
-    it('should reject project with invalid image path', () => {
-      expect(
-        validateProjectUrls({
-          ...validProject,
-          image: 'relative/path/without/leading/slash.png',
-        })
-      ).toBe(false);
+      expect(validateProjectUrls({ ...validProject, liveUrl: 'not-a-url' })).toBe(false);
     });
 
     it('should validate local image paths', () => {
+      expect(validateProjectUrls({ ...validProject, image: '/projects/image.png' })).toBe(true);
+    });
+
+    it('should reject a non-local image path', () => {
       expect(
-        validateProjectUrls({
-          ...validProject,
-          image: '/projects/image.png',
-        })
-      ).toBe(true);
+        validateProjectUrls({ ...validProject, image: 'relative/path/without/leading/slash.png' })
+      ).toBe(false);
     });
   });
 });

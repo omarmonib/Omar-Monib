@@ -1,5 +1,8 @@
 import type { Project } from '@/types/project';
 
+/**
+ * Validates if an object is a valid Project
+ */
 export const isValidProject = (data: unknown): data is Project => {
   if (!data || typeof data !== 'object') return false;
 
@@ -12,38 +15,29 @@ export const isValidProject = (data: unknown): data is Project => {
     'shortDescription',
     'fullDescription',
     'whyItMatters',
-    'image',
-    'projectUrl',
-    'liveUrl',
-    'githubUrl',
   ];
 
-  if (!requiredFields.every((field) => field in project)) return false;
-  if (typeof project.id !== 'number') return false;
-  if (typeof project.slug !== 'string') return false;
-  if (typeof project.title !== 'string') return false;
-  if (!Array.isArray(project.tags)) return false;
-  if (!Array.isArray(project.techs)) return false;
-  if (!Array.isArray(project.features)) return false;
-
-  const image = project.image;
-  if (typeof image === 'string') {
-    if (!image.startsWith('/')) return false;
-  } else if (typeof image === 'object' && image !== null) {
-    const img = image as Record<string, unknown>;
-    if (typeof img.light !== 'string' || !img.light.startsWith('/')) return false;
-    if (typeof img.dark !== 'string' || !img.dark.startsWith('/')) return false;
-  } else {
-    return false;
-  }
-
-  return true;
+  return (
+    requiredFields.every((field) => field in project) &&
+    typeof project.id === 'number' &&
+    typeof project.slug === 'string' &&
+    typeof project.title === 'string' &&
+    Array.isArray(project.tags) &&
+    Array.isArray(project.techs) &&
+    Array.isArray(project.features)
+  );
 };
 
+/**
+ * Validates a list of projects
+ */
 export const validateProjects = (projects: unknown[]): projects is Project[] => {
   return Array.isArray(projects) && projects.every(isValidProject);
 };
 
+/**
+ * Validates URLs
+ */
 export const isValidUrl = (url: string): boolean => {
   try {
     new URL(url);
@@ -53,11 +47,12 @@ export const isValidUrl = (url: string): boolean => {
   }
 };
 
+/**
+ * Validates optional project URLs/image path — only checked when present,
+ * since not every project has a live demo or a screenshot.
+ */
 export const validateProjectUrls = (project: Project): boolean => {
-  const imageValid =
-    typeof project.image === 'string'
-      ? project.image.startsWith('/')
-      : project.image.light.startsWith('/') && project.image.dark.startsWith('/');
-
-  return isValidUrl(project.liveUrl) && isValidUrl(project.githubUrl) && imageValid;
+  if (project.liveUrl && !isValidUrl(project.liveUrl)) return false;
+  if (project.image && !project.image.startsWith('/')) return false;
+  return true;
 };

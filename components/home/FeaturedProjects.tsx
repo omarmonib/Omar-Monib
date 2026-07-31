@@ -7,7 +7,7 @@ import { getProjectBySlug } from '@/constants/projects';
 import ProjectCard from '@/components/projects/ProjectCard';
 
 const FeaturedProjects = () => {
-  const projects = [getProjectBySlug('ecommerce-admin'), getProjectBySlug('monib-shop')].filter(
+  const projects = [getProjectBySlug('masjid-noor-aliman'), getProjectBySlug('marketi')].filter(
     Boolean
   );
 

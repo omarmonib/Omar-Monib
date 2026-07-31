@@ -1,216 +1,143 @@
 import type { Project } from '@/types/project';
 
 const PROJECTS_DATA: Record<string, Project> = {
-  'ecommerce-admin': {
+  'masjid-noor-aliman': {
     id: 1,
-    slug: 'ecommerce-admin',
-    icon: 'shopping-cart',
-    title: 'E-Commerce Admin Dashboard',
-    techs: [
-      'Next.js 14',
-      'React',
-      'TypeScript',
-      'shadcn/ui',
-      'Tailwind CSS',
-      'Framer Motion',
-      'Charts',
-    ],
-    features: [
-      '📦 Products Management — full CRUD with optimistic UI updates',
-      '👤 Users Management — role-based access control',
-      '💳 Payments Management — transaction history with filters',
-      '📊 Dashboard Analytics — real-time charts via Recharts',
-      '🎨 Modern UI (shadcn/ui + Dark/Light mode) — 88/100 Lighthouse accessibility score',
-      '🧱 Reusable & scalable architecture — 40% less boilerplate vs class-based patterns',
-    ],
-    shortDescription:
-      'Admin dashboard for an E-Commerce platform built with Next.js 14 App Router. Scores 91 on Lighthouse performance (mobile) with full product, user, and payment management in a responsive UI.',
-    fullDescription:
-      'A fully functional E-Commerce Admin Dashboard designed for managing an online store at scale. Administrators can manage products, users, and payments, view analytics through interactive charts, and interact with structured data tables. Built with Next.js 14 App Router, TypeScript, and shadcn/ui — achieving a 91/100 Lighthouse performance score and 96/100 Best Practices on mobile. The component architecture reduces feature development time by reusing 12+ shared UI primitives.',
-    whyItMatters:
-      'Demonstrates production-level frontend architecture: real-time data visualization, scalable component design, and a performance-first approach. A 91 Lighthouse performance score on a feature-rich admin dashboard shows that visual complexity and speed are not mutually exclusive.',
-    image: '/projects/e-commerce-dashboard.png',
-    liveUrl: 'https://admin-e-commerce-seven.vercel.app/',
-    githubUrl: 'https://github.com/omarmonib/Admin-Dashboard-E-Commerce.git',
-    tags: ['Next.js', 'TypeScript', 'shadcn/ui', 'Framer Motion'],
-  },
-  'monib-shop': {
-    id: 2,
-    slug: 'monib-shop',
-    icon: 'shopping-bag',
-    title: 'MonibShop – E-Commerce Website',
-    techs: [
-      'Next.js 14',
-      'TypeScript',
-      'Tailwind CSS',
-      'Zustand',
-      'React Hook Form',
-      'Zod',
-      'Lucide Icons',
-      'shadcn/ui',
-    ],
-    features: [
-      '🛍️ Product listing with categories & filters — URL-based state, zero prop drilling',
-      '🎨 Product variations (size & color) — <50ms UI response on selection',
-      '🛒 Shopping cart with Zustand persistence — survives full page refresh',
-      '🔍 URL-based filtering & sorting — fully shareable and bookmark-friendly URLs',
-      '📱 Fully responsive design — tested across 6 breakpoints',
-      '🔔 User feedback with toasts — 100% of async actions have loading + error states',
-      '🧱 Clean & scalable frontend architecture — feature-based folder structure',
-    ],
-    shortDescription:
-      'Modern E-Commerce frontend built with Next.js 14 App Router and Zustand. Scores 96 on Lighthouse performance (mobile). Cart state persists across sessions and URL-driven filters are fully shareable.',
-    fullDescription:
-      'MonibShop is a production-ready E-Commerce frontend that delivers a smooth, fast shopping experience. The cart uses Zustand with localStorage persistence — surviving full page refreshes without re-fetching. All filters and sorting are URL-encoded, making every product view shareable and SEO-indexable. Built with React Hook Form + Zod for type-safe checkout validation. Lighthouse scores (mobile): Performance 96, Best Practices 96, SEO 100.',
-    whyItMatters:
-      'Shows mastery of state management beyond useState: Zustand for global cart state, URL state for filters, and React Hook Form for validated forms. A 96 Lighthouse performance score on a fully interactive e-commerce frontend demonstrates that rich UX and fast load times go hand in hand.',
-    image: '/projects/e-commerce-monibshop.png',
-    liveUrl: 'https://monibshop.vercel.app/',
-    githubUrl: 'https://github.com/omarmonib/MonibShop-E-Commerce.git',
-    tags: ['Next.js 14', 'TypeScript', 'Zustand', 'React Hook Form'],
-  },
-  taqsak: {
-    id: 6,
-    slug: 'taqsak',
-    icon: 'cloud',
-    title: 'Taqsak — Weather App',
-    techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Leaflet', 'OpenWeatherMap'],
-    features: [
-      '🌍 Multi-language support (Arabic, English, French, Spanish) with RTL/LTR',
-      '🗺️ Interactive map with weather overlay layers',
-      '📊 Temperature, wind, and humidity charts (Recharts)',
-      '⏰ Hourly (24h) and 7-day forecast',
-      '☀️ UV Index & Heat Index via Open-Meteo',
-      '📍 Geolocation-based weather detection',
-      '🆚 Compare up to 4 cities side by side',
-      '📱 PWA — installable on mobile and desktop',
-      '🎨 Weather-reactive animated backgrounds',
-    ],
-    shortDescription:
-      'A bilingual Arabic/English weather forecast app with interactive maps, charts, city comparison, and PWA support — built with Next.js and OpenWeatherMap.',
-    fullDescription:
-      'Taqsak (طقسك) is a modern weather web application delivering real-time forecasts in four languages with full RTL support. It combines current conditions, hourly and 7-day forecasts, interactive Leaflet maps with precipitation and wind overlays, and Recharts-powered trend visualizations into a single polished experience. Users can detect their location, save favorites, compare multiple cities, and install the app as a PWA.',
-    whyItMatters:
-      'Demonstrates building a data-rich, internationalized application with third-party API integration, interactive maps, accessibility-aware RTL layout, and PWA capabilities — all in a production-deployed Next.js codebase.',
-    image: {
-      light: '/projects/taqsak-light.png',
-      dark: '/projects/taqsak-dark.png',
-    },
-    liveUrl: 'https://taqsak.vercel.app',
-    githubUrl: 'https://github.com/omarmonib/taqsak',
-    tags: ['Next.js', 'TypeScript', 'Recharts', 'PWA'],
-  },
-  'nur-al-iman': {
-    id: 4,
-    slug: 'nur-al-iman',
-    title: 'Masjid Noor Al-Iman — Official Website',
+    slug: 'masjid-noor-aliman',
     icon: 'book-open',
+    title: 'Masjid Noor Al-Iman — Islamic Platform',
     techs: [
       'Next.js 14',
       'TypeScript',
-      'Tailwind CSS',
       'Prisma',
+      'PostgreSQL',
       'NextAuth.js',
+      'Tailwind CSS',
+      'Capacitor',
       'next-intl',
-      'Zustand',
-      'TanStack Query',
-      'Framer Motion',
     ],
     features: [
-      '📖 Full Mushaf viewer with authentic Uthmanic Hafs fonts and word-by-word audio',
-      '📚 Browse 11 major Hadith collections with full-text Arabic search',
-      '🕌 Accurate daily prayer times with live countdown and monthly schedule',
-      '🧭 Qibla compass with live device orientation and distance to Makkah',
-      '📿 34 categorized Adhkar sections from Hisn Al-Muslim with interactive counter',
-      '🗞️ Mosque news, announcements, and events with category filters',
-      '🔐 Credential-based authentication with NextAuth.js and role-based user model',
-      '🌍 Full Arabic/English support via next-intl with RTL/LTR routing',
+      '📖 Full Quran reader — Mushaf view, word-by-word audio, global search',
+      '🕌 Live prayer times, Qibla compass & scheduled adhan notifications',
+      '📿 Interactive Adhkar counters from Hisn Al-Muslim with progress tracking',
+      '🎙️ Sermon & recitation audio library with speaker profiles',
+      '🛠️ Role-based admin dashboard for news, events & media management',
+      '📱 Native Android app (Capacitor) sharing the same Next.js codebase',
     ],
     shortDescription:
-      'Full-featured Islamic web platform for Masjid Noor Al-Iman — with Quran viewer, Hadith browser, prayer times, Qibla compass, Adhkar counter, and bilingual Arabic/English support.',
+      'A bilingual Islamic platform offering a full Quran reader, live prayer times, Adhkar, hadith browsing, sermon audio, and mosque news — delivered as both a web app and a native Android app.',
     fullDescription:
-      'The official website for Masjid Noor Al-Iman in Belbeis, Egypt. Built with Next.js 14 App Router and next-intl for Arabic-first bilingual routing, the platform delivers a complete Islamic experience: a Uthmanic Hafs Mushaf viewer with word audio, 11 Hadith collections with cross-collection search, adhan-powered prayer times with live countdown and printable monthly schedule, a live Qibla compass, and 34 Adhkar sections from Hisn Al-Muslim. Authentication is handled by NextAuth.js with Prisma and bcrypt.',
+      'Masjid Noor Al-Iman is a content-rich platform built for a local mosque, combining a Mushaf-style Quran reader with word-level audio, real-time prayer time calculations with a Qibla compass, an interactive Adhkar tracker, a searchable hadith library, and a sermon/recitation audio archive. A role-based admin dashboard lets mosque staff manage news, events, speakers, and media, while a Capacitor-wrapped Android app shares the exact same Next.js codebase as the website.',
     whyItMatters:
-      'Demonstrates building a content-heavy, RTL-first bilingual application with third-party API integration, database-backed authentication, server-side data fetching, and complex UI features — all in a production-grade Next.js 14 codebase serving a real community.',
-    image: '/projects/nur-al-iman.png',
-    liveUrl: 'https://masjid-noor-aliman.vercel.app/ar',
-    githubUrl: 'https://github.com/omarmonib/masjid-noor-aliman',
-    tags: ['Next.js 14', 'TypeScript', 'Prisma', 'NextAuth.js', 'next-intl', 'RTL'],
+      'Demonstrates delivering a large, content-heavy application across web and native mobile from a single codebase — with real-time calculations, offline-aware audio, push notifications, and a fully bilingual RTL/LTR experience.',
+    liveUrl: 'https://masjid-noor-aliman.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Prisma', 'Capacitor'],
   },
-  'omar-monib': {
-    id: 5,
-    slug: 'omar-monib',
-    icon: 'user',
-    title: 'Omar Monib — Portfolio',
-    techs: ['Next.js', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Supabase', 'Resend'],
+  'legal-documents-system': {
+    id: 2,
+    slug: 'legal-documents-system',
+    icon: 'file-text',
+    title: 'Legal Documents Management System',
+    techs: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'docxtemplater', 'Recharts'],
     features: [
-      '🎨 Custom design system — CSS variables + Tailwind v4 theme tokens',
-      '📧 Contact form — Resend email delivery + Supabase message storage',
-      '🌗 Theme switching — dark/light with zero flash-of-unstyled-content',
-      '♿ Accessible — skip-to-content, ARIA labels, keyboard navigation, route announcer',
-      '📱 Fully responsive — mobile-first across all breakpoints',
-      '⚡ 97/100 Lighthouse performance · 94 Accessibility · 100 Best Practices · 100 SEO',
+      '⚖️ Guided forms generate lawsuits, police reports & official requests',
+      '📄 One-click Word (.docx) export using each office’s own letterhead template',
+      '🖨️ Pixel-accurate PDF export mirroring the Word layout',
+      '👥 Built-in client CRM with CSV/Excel bulk import',
+      '⏰ Case history archive with searchable records & due-date reminders',
+      '🛠️ Admin dashboard for usage tracking, plan management & analytics',
     ],
     shortDescription:
-      'Personal portfolio built with Next.js, Tailwind CSS v4, and Framer Motion. Scores 97/100 on Lighthouse performance (mobile), LCP 2.4s, CLS 0. Contact form delivers via Resend and stores in Supabase. 93 passing tests.',
+      'An Arabic-first SaaS that helps Egyptian lawyers turn structured intake forms into polished Word and PDF legal documents, with a built-in client CRM and usage-based subscription plans.',
     fullDescription:
-      'This portfolio is itself a production-grade Next.js application — not a template. It features a custom Tailwind CSS v4 design system with CSS variable theming, a working contact form backed by Resend (email) and Supabase (storage), animated page transitions with Framer Motion, and a full test suite (93 passing tests). Lighthouse scores (mobile): Performance 97, Accessibility 94, Best Practices 100, SEO 100. LCP 2.4s, CLS 0, TBT near zero.',
+      'This system replaces the repetitive manual drafting of lawsuits, police reports, and official requests with a guided, validated form workflow that generates ready-to-file Word documents from custom office templates, plus a pixel-accurate print/PDF export. It also includes a lightweight client CRM with bulk CSV/Excel import, a searchable case history archive, due-date reminders, and an admin dashboard for tracking usage against tiered subscription plans.',
     whyItMatters:
-      'A portfolio that practices what it preaches: the same standards applied to client projects — testing, accessibility, performance, and real backend integration — are applied here. Perfect scores on Best Practices and SEO, 97 on Performance, and a working backend make this a demonstration of production engineering habits, not just a showcase.',
-    image: {
-      light: '/projects/omar-monib-light.png',
-      dark: '/projects/omar-monib-dark.png',
-    },
-    liveUrl: 'https://omar-monib.vercel.app/',
-    githubUrl: 'https://github.com/omarmonib/Omar-Monib',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase'],
+      'Showcases a fully right-to-left Arabic product built around a real professional workflow — dynamic document templating, structured form validation, and subscription-based usage limits — architected entirely on a Supabase backend with no custom server.',
+    tags: ['React', 'Supabase', 'Arabic RTL'],
   },
-  flux: {
-    id: 7,
-    slug: 'flux',
-    icon: 'notebook',
-    title: 'Flux — Modern Task Manager',
+  ranovix: {
+    id: 3,
+    slug: 'ranovix',
+    icon: 'radio',
+    title: 'Ranovix — Telecom Knowledge Hub',
+    techs: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'NextAuth v5',
+      'Tailwind CSS v4',
+      'Turborepo',
+    ],
+    features: [
+      '📚 Vendor knowledge base spanning Ericsson, Huawei, Nokia, ZTE & Samsung',
+      '📥 Moderated downloads library for manuals, scripts & configurations',
+      '💬 Community feed with posts, comments, likes & follows',
+      '🎓 Learning Center with paths, courses & real completion tracking',
+      '🔍 Full-text search across articles, downloads & news',
+      '🛡️ Five-tier RBAC with a dedicated moderation & analytics dashboard',
+    ],
+    shortDescription:
+      'A community-driven knowledge hub for mobile network engineers, centralizing vendor documentation, technical articles, a downloads library, and a peer discussion feed behind a moderated review workflow.',
+    fullDescription:
+      'Ranovix organizes scattered telecom vendor knowledge (Ericsson, Huawei, Nokia, ZTE, Samsung) into a single searchable reference — Markdown articles, a downloads library for manuals and scripts, industry news, and a Learning Center with real progress tracking. A social feed lets engineers share posts and discuss, while a five-role permission system and admin dashboard keep content moderated and organized by vendor and technology.',
+    whyItMatters:
+      'Built as a clean-architecture pnpm/Turborepo monorepo — domain, application, infrastructure, and presentation layers are strictly separated, with a single centralized RBAC matrix — demonstrating how to structure a large, multi-module Next.js application for long-term maintainability.',
+    tags: ['Next.js', 'TypeScript', 'Prisma', 'Monorepo'],
+  },
+  marketi: {
+    id: 4,
+    slug: 'marketi',
+    icon: 'shopping-cart',
+    title: 'Marketi — E-Commerce Platform',
     techs: [
       'Next.js 16',
+      'React 19',
       'TypeScript',
-      'Tailwind CSS v4',
-      'Prisma 7',
-      'PostgreSQL (Neon)',
-      'NextAuth.js v5',
-      'TanStack Query',
-      'Framer Motion',
-      'dnd-kit',
-      'Upstash Redis',
+      'Prisma',
+      'PostgreSQL',
+      'Stripe',
+      'Tailwind CSS',
+      'shadcn/ui',
     ],
     features: [
-      '✅ Complete task management (CRUD) with optimistic UI updates',
-      '📋 Kanban board with drag & drop powered by dnd-kit',
-      '🏷️ Tags, subtasks, priorities, due dates, filtering, sorting, and bulk actions',
-      '⚡ TanStack Query caching with instant optimistic updates and background refetching',
-      '🔐 Secure authentication using NextAuth v5, Prisma, JWT sessions, and protected routes',
-      '🚦 Rate limiting via Upstash Redis (30 requests/min) with custom error handling',
-      '🌙 Responsive dark/light mode with Framer Motion animations and skeleton loading states',
-      '🛡️ Production-ready architecture with Prisma 7, PostgreSQL (Neon), custom error boundaries, and App Router',
+      '🛒 Full storefront — catalog, filters, search, cart, wishlist & reviews',
+      '💳 Stripe Checkout with webhook-driven order fulfillment',
+      '🏷️ Coupon engine with percentage/fixed discounts & usage limits',
+      '🛠️ Admin back office for products, orders, users & coupons',
+      '🌍 English/Arabic storefront with automatic RTL layout',
+      '🔐 Rate-limited authentication via credentials & Google OAuth',
     ],
     shortDescription:
-      'Production-ready task management application built with Next.js 16, Prisma 7, and PostgreSQL. Features Kanban drag & drop, optimistic updates, authentication, rate limiting, and a fully responsive modern UI.',
-
+      'A full-stack, multi-language e-commerce platform with a complete storefront and admin back office, built on Next.js App Router, Prisma, and Stripe Checkout.',
     fullDescription:
-      'Flux is a full-stack productivity application designed with production-grade architecture in mind. Built on Next.js 16 App Router, Prisma 7, and PostgreSQL (Neon), it delivers complete task management including Kanban drag-and-drop, subtasks, priorities, tags, advanced filtering, bulk actions, and inline editing. Authentication is powered by NextAuth v5 with JWT sessions, while TanStack Query provides optimistic updates and intelligent caching. The application also integrates Upstash Redis for API rate limiting and Framer Motion for polished interactions, resulting in a fast, responsive, and scalable user experience.',
-
+      'Marketi is a reference e-commerce architecture combining a public storefront — product catalog, search, cart, coupons, wishlist, reviews, order history — with an admin back office for managing products, orders, users, and coupons. Checkout runs on Stripe Checkout Sessions with webhook-driven order creation, and the storefront is fully localized in English and Arabic with automatic RTL support.',
     whyItMatters:
-      'Demonstrates modern full-stack engineering using the latest Next.js ecosystem. The project showcases authentication, database modeling, API design, optimistic UI patterns, drag-and-drop interactions, caching, rate limiting, and production-ready architecture—making it a strong example of building scalable SaaS-style applications.',
-
-    image: {
-      light: '/projects/flux-light.png',
-      dark: '/projects/flux-dark.png',
-    },
-
-    liveUrl: 'https://flux-todo-list.vercel.app',
-
-    githubUrl: 'https://github.com/omarmonib/Flux-todo-list',
-
-    tags: ['Next.js 16', 'Prisma', 'PostgreSQL', 'NextAuth', 'TanStack Query', 'TypeScript'],
+      'Demonstrates a production-style e-commerce architecture — Server Actions, webhook-driven payments, rate-limited auth, and role-gated admin tooling — inside a single type-safe Next.js codebase built on shadcn/ui and Radix primitives.',
+    tags: ['Next.js', 'TypeScript', 'Stripe', 'Prisma'],
+  },
+  expenseiq: {
+    id: 5,
+    slug: 'expenseiq',
+    icon: 'wallet',
+    title: 'ExpenseIQ — Finance Management SaaS',
+    techs: ['React 19', 'Vite', 'Supabase', 'Zustand', 'Tailwind CSS', 'Capacitor'],
+    features: [
+      '💸 Expense & income tracking with categories and budget alerts',
+      '🔁 Recurring transactions with automatic scheduled generation',
+      '🧾 Lightweight invoicing — clients, projects & profit/loss tracking',
+      '📊 Interactive dashboard with monthly trend & category charts',
+      '💳 Tiered subscriptions with card & manual payment approval',
+      '📱 Native Android app with local push budget notifications',
+    ],
+    shortDescription:
+      'A bilingual personal and business finance app combining expense tracking, budgeting, lightweight invoicing, and a tiered subscription model in one Supabase-backed SaaS.',
+    fullDescription:
+      'ExpenseIQ covers personal expense/income tracking with category budgets and proactive alerts, alongside a lightweight business module for clients, projects, and invoices with profit/loss visibility. A tiered Free/Pro/Business subscription model supports both instant card payments and manually verified bank transfers, all wrapped in a bilingual Arabic/English interface with a native Android companion app.',
+    whyItMatters:
+      'Combines personal finance tooling with a small-business invoicing module and a real subscription/payment system, packaged as both a responsive web app and a native Android app from a single React/Vite codebase.',
+    tags: ['React', 'Supabase', 'Zustand'],
   },
 };
 
@@ -229,7 +156,7 @@ export const getProjectBySlug = (slug: string): Project | undefined => {
 };
 
 /**
- * Get projects as a record
+ * Get projects as a record (for backwards compatibility)
  */
 export const getProjectsData = (): Record<string, Project> => {
   return PROJECTS_DATA;
