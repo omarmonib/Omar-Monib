@@ -1,5 +1,8 @@
 import type { Project } from '@/types/project';
 
+// Flip to true once the Masjid repo is public to show its Source Code link.
+const MASJID_REPO_PUBLIC = false;
+
 const PROJECTS_DATA: Record<string, Project> = {
   'masjid-noor-aliman': {
     id: 1,
@@ -32,7 +35,7 @@ const PROJECTS_DATA: Record<string, Project> = {
       'I built this for a mosque in Belbeis, Al-Sharqia. It is one Next.js and TypeScript codebase with Prisma and PostgreSQL behind it. Prayer times and the Qibla compass are calculated in the app, the site works in Arabic and English (RTL and LTR), and staff post news and events from a role-based admin dashboard. The Android app is the same code wrapped with Capacitor.',
     image: '/projects/masjid-noor-aliman.jpg',
     liveUrl: 'https://masjid-noor-aliman.vercel.app/',
-    githubUrl: 'https://github.com/omarmonib/masjid-noor-aliman', // repo must be public before merge
+    githubUrl: MASJID_REPO_PUBLIC ? 'https://github.com/omarmonib/masjid-noor-aliman' : undefined,
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Capacitor'],
   },
   'legal-documents-system': {
