@@ -30,6 +30,7 @@ const PROJECTS_DATA: Record<string, Project> = {
       'Masjid Noor Al-Iman is a content-rich platform built for a local mosque, combining a Mushaf-style Quran reader with word-level audio, real-time prayer time calculations with a Qibla compass, an interactive Adhkar tracker, a searchable hadith library, and a sermon/recitation audio archive. A role-based admin dashboard lets mosque staff manage news, events, speakers, and media, while a Capacitor-wrapped Android app shares the exact same Next.js codebase as the website.',
     whyItMatters:
       'Demonstrates delivering a large, content-heavy application across web and native mobile from a single codebase — with real-time calculations, offline-aware audio, push notifications, and a fully bilingual RTL/LTR experience.',
+    image: '/projects/masjid-noor-aliman.png',
     liveUrl: 'https://masjid-noor-aliman.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/masjid-noor-aliman', // repo must be public before merge
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Capacitor'],
@@ -118,6 +119,7 @@ const PROJECTS_DATA: Record<string, Project> = {
       'Marketi is a reference e-commerce architecture combining a public storefront — product catalog, search, cart, coupons, wishlist, reviews, order history — with an admin back office for managing products, orders, users, and coupons. Checkout runs on Stripe Checkout Sessions with webhook-driven order creation, and the storefront is fully localized in English and Arabic with automatic RTL support.',
     whyItMatters:
       'Demonstrates an e-commerce architecture — Server Actions, webhook-driven payments, rate-limited auth, and role-gated admin tooling — inside a single type-safe Next.js codebase built on shadcn/ui and Radix primitives.',
+    image: '/projects/marketi.png',
     liveUrl: 'https://marketi-lyart.vercel.app/',
     githubUrl: 'https://github.com/omarmonib/marketi',
     tags: ['Next.js', 'TypeScript', 'Stripe', 'Prisma'],
