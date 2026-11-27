@@ -78,7 +78,7 @@ const ContactForm = () => {
             </Label>
             <Textarea
               id="message"
-              placeholder="Tell me about your project or how I can help..."
+              placeholder="Tell me about the role or project..."
               rows={5}
               aria-describedby={errors.message ? 'message-error' : undefined}
               aria-invalid={!!errors.message}

@@ -18,7 +18,7 @@ const HeroImage = ({ name }: { name: string }) => {
       <Avatar className="relative z-10 w-48 h-48 md:w-72 md:h-72 ring-2 md:ring-4 ring-accent/40 shadow-[0_20px_40px_rgba(99,102,241,0.15)]">
         <Image
           src={ProfileImg}
-          alt={`${name} — Frontend Developer and Network Engineer profile photo`}
+          alt={`${name} — Frontend Developer and Telecom Engineer profile photo`}
           fill
           priority
           placeholder="blur"

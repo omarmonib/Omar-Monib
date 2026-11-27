@@ -26,9 +26,9 @@ const AboutTeaser = () => {
               Developer by passion.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              I bring a reliability mindset from 7 years of network engineering at Vodafone to every
-              line of frontend code I write. That unique background means I build apps that are not
-              just beautiful — but production-grade and resilient.
+              I come from 7+ years of telecom field and NOC work on Vodafone projects, and I taught myself
+              web development on the side. That background shapes how I build: I care about
+              reliability, clear errors and tools that real users depend on.
             </p>
             <Link
               href="/about"

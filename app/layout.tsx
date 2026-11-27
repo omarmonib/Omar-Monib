@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Omar Monib',
   },
   description:
-    'Frontend Developer specializing in React.js and Next.js with 7+ years of network engineering experience at Vodafone. Available for freelance and full-time roles — remote, hybrid, or on-site.',
+    'Self-taught frontend developer (React, Next.js, TypeScript) with 7+ years of telecom engineering experience on Vodafone projects. Open to junior frontend roles, remote or on-site.',
   keywords: [
     'Frontend Developer',
     'React Developer',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Omar Monib | React & Next.js Frontend Developer in Egypt',
     description:
-      'Frontend Developer with 7 years of engineering experience at Vodafone and 3 years building production-grade web apps with React, Next.js, and TypeScript.',
+      'Self-taught frontend developer with 7+ years of telecom engineering experience, building full-stack web apps with React, Next.js, and TypeScript.',
     url: 'https://omar-monib.vercel.app',
     siteName: 'Omar Monib Portfolio',
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Omar Monib | React & Next.js Frontend Developer in Egypt',
     description:
-      'Frontend Developer with 7 years of engineering experience at Vodafone and 3 years building production-grade web apps with React, Next.js, and TypeScript.',
+      'Self-taught frontend developer with 7+ years of telecom engineering experience, building full-stack web apps with React, Next.js, and TypeScript.',
     images: ['https://omar-monib.vercel.app/og-image.png'],
     creator: '@omar_monib1',
   },
@@ -93,8 +93,8 @@ const jsonLd = {
   email: 'omar.monib.03@gmail.com',
   jobTitle: 'Frontend Developer',
   description:
-    'Frontend Developer specializing in React and Next.js with 7+ years of network engineering experience at Vodafone.',
-  knowsAbout: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Network Engineering'],
+    'Self-taught frontend developer (React, Next.js) with 7+ years of telecom engineering experience.',
+  knowsAbout: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Telecom Engineering'],
   sameAs: [
     'https://www.linkedin.com/in/omar-monib/',
     'https://github.com/omarmonib',
@@ -106,7 +106,7 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    description: 'Available for freelance projects and full-time frontend developer roles',
+    description: 'Open to junior frontend developer roles',
   },
 };
 

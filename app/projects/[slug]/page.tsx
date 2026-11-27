@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getProjectBySlug, getAllProjects } from '@/constants/projects';
 import { notFound } from 'next/navigation';
 import type { LucideIcon } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
   'shopping-cart': ShoppingCart,
@@ -39,7 +40,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
     notFound();
   }
 
-  const { title, techs, features, shortDescription, fullDescription, whyItMatters, icon } = project;
+  const { title, techs, features, shortDescription, fullDescription, whyItMatters, icon, liveUrl, githubUrl } = project;
 
   const Icon = iconMap[icon ?? 'user'] ?? User;
 
@@ -50,6 +51,31 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
         <Icon className="w-10 h-10 text-accent" />
         <h1 className="text-4xl font-bold text-foreground">{title}</h1>
       </div>
+
+      {(liveUrl || githubUrl) && (
+        <div className="flex flex-wrap gap-4">
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent font-semibold"
+            >
+              <ExternalLink className="w-4 h-4" /> Live Demo
+            </a>
+          )}
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent font-semibold"
+            >
+              <Github className="w-4 h-4" /> Source Code
+            </a>
+          )}
+        </div>
+      )}
 
       {/* Short Description */}
       <Card className="bg-background border-border rounded-xl shadow-sm">
@@ -95,10 +121,10 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
         </CardContent>
       </Card>
 
-      {/* Why This Project Matters */}
+      {/* How I built it */}
       <Card className="bg-background border-border rounded-xl shadow-sm">
         <CardHeader>
-          <CardTitle className="text-xl">🏆 Why This Project Matters</CardTitle>
+          <CardTitle className="text-xl">🏆 How I Built It</CardTitle>
         </CardHeader>
         <CardContent className="text-muted-foreground">{whyItMatters}</CardContent>
       </Card>

@@ -5,7 +5,7 @@ export const SKILLS = [
   'React.js / Next.js',
   'TypeScript / JavaScript',
   'Tailwind CSS',
-  'Node.js / Express',
+  'Node.js (API routes, Server Actions)',
   'Git & GitHub',
   'Responsive Design',
   'Jest & Testing',
@@ -13,7 +13,6 @@ export const SKILLS = [
   'Form Handling (React Hook Form)',
   'API Integration & REST',
   'Database Design (SQL)',
-  'Problem Solving',
 ] as const;
 
 /**

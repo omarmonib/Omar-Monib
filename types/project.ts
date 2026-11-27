@@ -8,6 +8,7 @@ export interface Project {
   whyItMatters: string;
   image?: string;
   liveUrl?: string;
+  githubUrl?: string;
   tags: string[];
   techs: string[];
   features: string[];

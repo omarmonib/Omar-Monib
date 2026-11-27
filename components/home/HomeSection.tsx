@@ -9,7 +9,6 @@ import HeroContent from './HeroContent';
 // Lazy load everything below the fold
 const AboutTeaser = dynamic(() => import('./AboutTeaser'), { ssr: false });
 const FeaturedProjects = dynamic(() => import('./FeaturedProjects'), { ssr: false });
-const Testimonials = dynamic(() => import('./Testimonials'), { ssr: false });
 const ContactCTA = dynamic(() => import('./ContactCTA'), { ssr: false });
 
 const HomeSection = () => {
@@ -58,7 +57,6 @@ const HomeSection = () => {
 
       <AboutTeaser />
       <FeaturedProjects />
-      <Testimonials />
       <ContactCTA />
     </>
   );

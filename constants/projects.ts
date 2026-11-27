@@ -1,5 +1,8 @@
 import type { Project } from '@/types/project';
 
+// Flip to true once the Masjid repo is public to show its Source Code link.
+const MASJID_REPO_PUBLIC = false;
+
 const PROJECTS_DATA: Record<string, Project> = {
   'masjid-noor-aliman': {
     id: 1,
@@ -29,8 +32,10 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'Masjid Noor Al-Iman is a content-rich platform built for a local mosque, combining a Mushaf-style Quran reader with word-level audio, real-time prayer time calculations with a Qibla compass, an interactive Adhkar tracker, a searchable hadith library, and a sermon/recitation audio archive. A role-based admin dashboard lets mosque staff manage news, events, speakers, and media, while a Capacitor-wrapped Android app shares the exact same Next.js codebase as the website.',
     whyItMatters:
-      'Demonstrates delivering a large, content-heavy application across web and native mobile from a single codebase — with real-time calculations, offline-aware audio, push notifications, and a fully bilingual RTL/LTR experience.',
+      'I built this for a mosque in Belbeis, Al-Sharqia. It is one Next.js and TypeScript codebase with Prisma and PostgreSQL behind it. Prayer times and the Qibla compass are calculated in the app, the site works in Arabic and English (RTL and LTR), and staff post news and events from a role-based admin dashboard. The Android app is the same code wrapped with Capacitor.',
+    image: '/projects/masjid-noor-aliman.jpg',
     liveUrl: 'https://masjid-noor-aliman.vercel.app/',
+    githubUrl: MASJID_REPO_PUBLIC ? 'https://github.com/omarmonib/masjid-noor-aliman' : undefined,
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Capacitor'],
   },
   'legal-documents-system': {
@@ -52,7 +57,7 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'This system replaces the repetitive manual drafting of lawsuits, police reports, and official requests with a guided, validated form workflow that generates ready-to-file Word documents from custom office templates, plus a pixel-accurate print/PDF export. It also includes a lightweight client CRM with bulk CSV/Excel import, a searchable case history archive, due-date reminders, and an admin dashboard for tracking usage against tiered subscription plans.',
     whyItMatters:
-      'Showcases a fully right-to-left Arabic product built around a real professional workflow — dynamic document templating, structured form validation, and subscription-based usage limits — architected entirely on a Supabase backend with no custom server.',
+      'I built this around one workflow: a lawyer fills a guided form and gets a Word or PDF document. It is a React and Vite app on Supabase, Arabic-first (right-to-left), with a client list and an admin dashboard for usage and plans. There is no public demo yet.',
     tags: ['React', 'Supabase', 'Arabic RTL'],
   },
   ranovix: {
@@ -83,7 +88,9 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'Ranovix organizes scattered telecom vendor knowledge (Ericsson, Huawei, Nokia, ZTE, Samsung) into a single searchable reference — Markdown articles, a downloads library for manuals and scripts, industry news, and a Learning Center with real progress tracking. A social feed lets engineers share posts and discuss, while a five-role permission system and admin dashboard keep content moderated and organized by vendor and technology.',
     whyItMatters:
-      'Built as a clean-architecture pnpm/Turborepo monorepo — domain, application, infrastructure, and presentation layers are strictly separated, with a single centralized RBAC matrix — demonstrating how to structure a large, multi-module Next.js application for long-term maintainability.',
+      'I built Ranovix as a pnpm and Turborepo monorepo (a Next.js 15 web app plus shared packages) with Prisma and PostgreSQL, NextAuth sign-in with email or Google, and Cloudinary for file uploads. It has a learning section with courses and lessons, and role-based access control with an admin area. The content covers Ericsson, Huawei, Nokia, ZTE and Samsung equipment.',
+    githubUrl: 'https://github.com/omarmonib/ranovix',
+    // liveUrl: pending (ranovix-web.vercel.app returned HTTP 500 on 27 Nov)
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Monorepo'],
   },
   marketi: {
@@ -114,7 +121,10 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'Marketi is a reference e-commerce architecture combining a public storefront — product catalog, search, cart, coupons, wishlist, reviews, order history — with an admin back office for managing products, orders, users, and coupons. Checkout runs on Stripe Checkout Sessions with webhook-driven order creation, and the storefront is fully localized in English and Arabic with automatic RTL support.',
     whyItMatters:
-      'Demonstrates a production-style e-commerce architecture — Server Actions, webhook-driven payments, rate-limited auth, and role-gated admin tooling — inside a single type-safe Next.js codebase built on shadcn/ui and Radix primitives.',
+      'I built Marketi as a complete shop, storefront and back office. Next.js App Router with Server Actions and Prisma on PostgreSQL, Stripe Checkout, a coupon system, and an admin area for products, orders and coupons. The storefront is translated with next-intl into English and Arabic, forms use React Hook Form with Zod validation, and sign-in works with credentials or Google.',
+    image: '/projects/marketi.jpg',
+    liveUrl: 'https://marketi-lyart.vercel.app/',
+    githubUrl: 'https://github.com/omarmonib/marketi',
     tags: ['Next.js', 'TypeScript', 'Stripe', 'Prisma'],
   },
   expenseiq: {
@@ -136,7 +146,7 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'ExpenseIQ covers personal expense/income tracking with category budgets and proactive alerts, alongside a lightweight business module for clients, projects, and invoices with profit/loss visibility. A tiered Free/Pro/Business subscription model supports both instant card payments and manually verified bank transfers, all wrapped in a bilingual Arabic/English interface with a native Android companion app.',
     whyItMatters:
-      'Combines personal finance tooling with a small-business invoicing module and a real subscription/payment system, packaged as both a responsive web app and a native Android app from a single React/Vite codebase.',
+      'I built ExpenseIQ as a React and Vite app on Supabase, with Zustand for state. It tracks expenses and budgets, has simple invoicing, and runs as a web app and an Android app (Capacitor). There is no public demo yet.',
     tags: ['React', 'Supabase', 'Zustand'],
   },
 };

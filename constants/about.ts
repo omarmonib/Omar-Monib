@@ -1,52 +1,41 @@
 import { getAllProjects } from '@/constants/projects';
-import { getSkillCount } from '@/constants/skills';
 
-const EXPERIENCE_START_YEAR = 2019;
-
-const FRONTEND_START_YEAR = 2023;
-
-const currentYear = new Date().getFullYear();
-const experienceYears = currentYear - EXPERIENCE_START_YEAR;
-const frontendYears = currentYear - FRONTEND_START_YEAR;
+const experienceYears = 7;
 
 export const ABOUT_CONTENT = {
   whoAmI: {
     heading: 'Who am I?',
-    description: `Frontend Developer and Electronics & Communications Engineer with ${experienceYears} years at Vodafone and ${frontendYears} years of freelance development — bringing a unique blend of network architecture and modern web expertise.`,
+    description: `Self-taught frontend developer and Electronics & Communications Engineer with ${experienceYears} years of telecom field and NOC work on Vodafone projects. I have been teaching myself frontend development since 2023, building full-stack web apps with React and Next.js, and I am looking for a junior frontend role.`,
   },
   background: {
     heading: 'Professional Background',
     description:
-      'Network Engineer at Vodafone specializing in maintenance and architecture, while simultaneously building production-grade web applications as a freelance developer.',
+      'Telecom engineer on Vodafone projects (Ericsson RBS site work, then NOC L1), learning web development in parallel by building and shipping full projects.',
   },
   skills: {
     heading: 'Skills & Expertise',
     description:
-      'Specialized in React, Next.js, and TypeScript — writing clean, maintainable code that bridges design and functionality with a focus on performance and scalability.',
+      'Day to day I work with React, Next.js, TypeScript and Tailwind, plus Prisma, PostgreSQL and Supabase on the back end.',
   },
   passion: {
     heading: 'My Passion',
     description:
-      'Passionate about building digital experiences that matter — where great software meets real human needs. Every project is an opportunity to learn, innovate, and make a lasting impact.',
+      'I like building tools for real workflows, such as telecom engineers, mosques and lawyers, and I learn most by shipping them.',
   },
 } as const;
 
 export const ABOUT_STATS = [
   {
     value: `${experienceYears}+`,
-    label: 'Years Network & Engineering Experience',
+    label: 'Years in Telecom Engineering',
   },
   {
-    value: `${frontendYears}+`,
-    label: 'Years Frontend Development',
+    value: '3',
+    label: 'Years Self-Taught Frontend',
   },
   {
     value: `${getAllProjects().length}`,
     label: 'Projects Built',
-  },
-  {
-    value: `${getSkillCount()}+`,
-    label: 'Skills Mastered',
   },
 ] as const;
 
@@ -85,19 +74,19 @@ export const ABOUT_TIMELINE = [
     year: '2023',
     title: 'NOC L1 Engineer & Frontend Development',
     description:
-      'Promoted to NFM Maintenance & NOC L1 Engineer at Afro Egypt (Vodafone Project). Simultaneously began frontend development — building production-grade React and Next.js applications as a freelance developer.',
+      'Moved to NFM Maintenance & NOC L1 Engineer at Afro Egypt (Vodafone Project). Started teaching myself frontend development with React and Next.js in 2023, alongside the job.',
   },
   {
     year: '2023 - 2025',
     title: 'Launched Portfolio & Key Projects',
     description:
-      'Shipped MonibShop, E-Commerce Admin Dashboard, Nur Al-Iman Islamic Platform, and personal portfolio — demonstrating full-stack frontend capabilities with TypeScript, Zustand, and Next.js App Router.',
+      'Built and deployed MonibShop, an e-commerce admin dashboard, the Nur Al-Iman platform and this portfolio, then larger full-stack projects: Marketi, Ranovix and the Masjid Noor Al-Iman platform.',
   },
   {
     year: 'Present',
     title: 'Open to Frontend Opportunities',
     description:
-      'Actively seeking frontend roles locally and internationally. Open to on-site, hybrid, or remote positions — bringing engineering discipline and production mindset to modern web development.',
+      'Looking for a junior frontend role, remote or on-site, where I can also use my telecom background.',
   },
 ] as const;
 

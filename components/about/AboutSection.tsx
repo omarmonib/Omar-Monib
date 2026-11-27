@@ -38,7 +38,7 @@ const AboutSection = () => {
           <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-accent/40 shadow-lg shadow-accent/20">
             <Image
               src={ProfileImg}
-              alt="Omar Monib — Frontend Developer and Network Engineer"
+              alt="Omar Monib — Frontend Developer and Telecom Engineer"
               fill
               placeholder="blur"
               sizes="96px"
@@ -47,7 +47,7 @@ const AboutSection = () => {
           </div>
           <div className="text-center">
             <h3 className="text-lg font-semibold text-foreground">Omar Monib</h3>
-            <p className="text-sm text-muted-foreground">Frontend Developer & Network Engineer</p>
+            <p className="text-sm text-muted-foreground">Frontend Developer | Telecom Engineer</p>
           </div>
         </motion.div>
 

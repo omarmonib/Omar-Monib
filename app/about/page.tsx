@@ -4,7 +4,7 @@ import { About } from '@/components/about';
 export const metadata: Metadata = {
   title: 'About | Omar Monib',
   description:
-    'Learn about Omar Monib — Frontend Developer and Electronics & Communications Engineer with 7+ years of experience at Vodafone and 3+ years of freelance development.',
+    'Learn about Omar Monib — Self-taught frontend developer and Electronics & Communications Engineer with 7+ years of telecom experience on Vodafone projects.',
 };
 
 export default function AboutPage() {

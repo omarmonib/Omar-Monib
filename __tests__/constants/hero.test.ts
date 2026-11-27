@@ -11,7 +11,7 @@ describe('Hero Content Constants', () => {
     it('should have a title property', () => {
       expect(HERO_CONTENT).toHaveProperty('title');
       expect(typeof HERO_CONTENT.title).toBe('string');
-      expect(HERO_CONTENT.title).toBe('Frontend Developer & Network Engineer');
+      expect(HERO_CONTENT.title).toBe('Frontend Developer | Telecom Engineer');
     });
 
     it('should have a description property', () => {
@@ -50,17 +50,17 @@ describe('Hero Content Constants', () => {
 
     it('should have subtitle and tagline with correct values', () => {
       expect(HERO_CONTENT.subtitle).toBe(
-        '6+ Years Network Engineering • 2+ Years Frontend Development'
+        '7+ Years Telecom Engineering • Self-Taught Frontend Developer Since 2023'
       );
       expect(HERO_CONTENT.tagline).toBe(
-        'Electronics & Communications Engineer • Vodafone • Freelance Developer'
+        'Electronics & Communications Engineer • Vodafone Projects • React & Next.js'
       );
     });
 
     it('should have highlights array with at least 4 items', () => {
       expect(HERO_CONTENT.highlights.length).toBe(4);
-      expect(HERO_CONTENT.highlights[0]).toBe('React & Next.js Specialist');
-      expect(HERO_CONTENT.highlights[1]).toBe('TypeScript Expert');
+      expect(HERO_CONTENT.highlights[0]).toBe('React & Next.js');
+      expect(HERO_CONTENT.highlights[1]).toBe('TypeScript');
     });
 
     it('should have CTA contact property', () => {
