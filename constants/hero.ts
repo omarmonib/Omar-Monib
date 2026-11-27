@@ -1,19 +1,19 @@
 export const HERO_CONTENT = {
   name: 'Omar Monib',
   title: 'Frontend Developer & Network Engineer',
-  subtitle: '6+ Years Network Engineering • 2+ Years Frontend Development',
-  tagline: 'Electronics & Communications Engineer • Vodafone • Freelance Developer',
+  subtitle: '6+ Years Telecom Engineering • Self-Taught Frontend Developer Since 2023',
+  tagline: 'Electronics & Communications Engineer • Vodafone Projects • React & Next.js',
   description:
-    "I build fast, production-grade web apps with React and Next.js — with a reliability mindset from 7 years of network engineering at Vodafone that most frontend developers don't have.",
+    "I build full-stack web apps with React, Next.js and TypeScript. My background is telecom: years of NOC and field work on Vodafone networks, which taught me to care about monitoring, reliability and clear failure handling.",
   cta: {
     projects: 'View My Work',
     contact: 'Get in Touch',
     cv: 'Download CV',
   },
   highlights: [
-    'React & Next.js Specialist',
-    'TypeScript Expert',
-    'Full-Stack Capable',
-    'Network Architecture Background',
+    'React & Next.js',
+    'TypeScript',
+    'Full-Stack Projects',
+    'Telecom & NOC Background',
   ],
 } as const;

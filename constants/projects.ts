@@ -31,6 +31,7 @@ const PROJECTS_DATA: Record<string, Project> = {
     whyItMatters:
       'Demonstrates delivering a large, content-heavy application across web and native mobile from a single codebase — with real-time calculations, offline-aware audio, push notifications, and a fully bilingual RTL/LTR experience.',
     liveUrl: 'https://masjid-noor-aliman.vercel.app/',
+    githubUrl: 'https://github.com/omarmonib/masjid-noor-aliman', // repo must be public before merge
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Capacitor'],
   },
   'legal-documents-system': {
@@ -84,6 +85,8 @@ const PROJECTS_DATA: Record<string, Project> = {
       'Ranovix organizes scattered telecom vendor knowledge (Ericsson, Huawei, Nokia, ZTE, Samsung) into a single searchable reference — Markdown articles, a downloads library for manuals and scripts, industry news, and a Learning Center with real progress tracking. A social feed lets engineers share posts and discuss, while a five-role permission system and admin dashboard keep content moderated and organized by vendor and technology.',
     whyItMatters:
       'Built as a clean-architecture pnpm/Turborepo monorepo — domain, application, infrastructure, and presentation layers are strictly separated, with a single centralized RBAC matrix — demonstrating how to structure a large, multi-module Next.js application for long-term maintainability.',
+    githubUrl: 'https://github.com/omarmonib/ranovix',
+    // liveUrl: pending (ranovix-web.vercel.app returned HTTP 500 on 27 Nov)
     tags: ['Next.js', 'TypeScript', 'Prisma', 'Monorepo'],
   },
   marketi: {
@@ -114,7 +117,9 @@ const PROJECTS_DATA: Record<string, Project> = {
     fullDescription:
       'Marketi is a reference e-commerce architecture combining a public storefront — product catalog, search, cart, coupons, wishlist, reviews, order history — with an admin back office for managing products, orders, users, and coupons. Checkout runs on Stripe Checkout Sessions with webhook-driven order creation, and the storefront is fully localized in English and Arabic with automatic RTL support.',
     whyItMatters:
-      'Demonstrates a production-style e-commerce architecture — Server Actions, webhook-driven payments, rate-limited auth, and role-gated admin tooling — inside a single type-safe Next.js codebase built on shadcn/ui and Radix primitives.',
+      'Demonstrates an e-commerce architecture — Server Actions, webhook-driven payments, rate-limited auth, and role-gated admin tooling — inside a single type-safe Next.js codebase built on shadcn/ui and Radix primitives.',
+    liveUrl: 'https://marketi-lyart.vercel.app/',
+    githubUrl: 'https://github.com/omarmonib/marketi',
     tags: ['Next.js', 'TypeScript', 'Stripe', 'Prisma'],
   },
   expenseiq: {
