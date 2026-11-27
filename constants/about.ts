@@ -1,7 +1,7 @@
 import { getAllProjects } from '@/constants/projects';
 import { getSkillCount } from '@/constants/skills';
 
-const experienceYears = 6;
+const experienceYears = 7;
 
 export const ABOUT_CONTENT = {
   whoAmI: {

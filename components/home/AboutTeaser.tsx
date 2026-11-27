@@ -26,7 +26,7 @@ const AboutTeaser = () => {
               Developer by passion.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              I come from 6+ years of telecom field and NOC work on Vodafone projects, and I taught myself
+              I come from 7+ years of telecom field and NOC work on Vodafone projects, and I taught myself
               web development on the side. That background shapes how I build: I care about
               reliability, clear errors and tools that real users depend on.
             </p>

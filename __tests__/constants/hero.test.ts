@@ -50,7 +50,7 @@ describe('Hero Content Constants', () => {
 
     it('should have subtitle and tagline with correct values', () => {
       expect(HERO_CONTENT.subtitle).toBe(
-        '6+ Years Telecom Engineering • Self-Taught Frontend Developer Since 2023'
+        '7+ Years Telecom Engineering • Self-Taught Frontend Developer Since 2023'
       );
       expect(HERO_CONTENT.tagline).toBe(
         'Electronics & Communications Engineer • Vodafone Projects • React & Next.js'
