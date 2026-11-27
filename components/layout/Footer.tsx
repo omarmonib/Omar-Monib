@@ -29,7 +29,7 @@ const Footer = () => {
               <span className="text-lg font-bold text-foreground">Omar Monib</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Frontend Developer & Network Engineer building high-performance web applications.
+              Frontend developer with a telecom engineering background.
             </p>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium w-fit">
               <span className="relative flex h-1.5 w-1.5">

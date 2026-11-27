@@ -94,7 +94,7 @@ const jsonLd = {
   jobTitle: 'Frontend Developer',
   description:
     'Self-taught frontend developer (React, Next.js) with 7+ years of telecom engineering experience.',
-  knowsAbout: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Network Engineering'],
+  knowsAbout: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Telecom Engineering'],
   sameAs: [
     'https://www.linkedin.com/in/omar-monib/',
     'https://github.com/omarmonib',
@@ -106,7 +106,7 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    description: 'Available for freelance projects and full-time frontend developer roles',
+    description: 'Open to junior frontend developer roles',
   },
 };
 

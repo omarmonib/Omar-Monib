@@ -1,6 +1,6 @@
 export const HERO_CONTENT = {
   name: 'Omar Monib',
-  title: 'Frontend Developer & Network Engineer',
+  title: 'Frontend Developer | Telecom Engineer',
   subtitle: '7+ Years Telecom Engineering • Self-Taught Frontend Developer Since 2023',
   tagline: 'Electronics & Communications Engineer • Vodafone Projects • React & Next.js',
   description:

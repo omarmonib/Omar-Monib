@@ -18,11 +18,11 @@ const ContactCTA = () => {
             Let&apos;s Work Together
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Have a project in mind?
+            Looking for a junior frontend developer?
           </h2>
           <p className="text-base text-muted-foreground mb-8 max-w-xl mx-auto">
-            I&apos;m available for freelance projects and full-time opportunities. Let&apos;s build something
-            great together.
+            I&apos;m open to junior frontend roles, remote or on-site. I can also use my telecom
+            background on network-tools projects. Let&apos;s talk.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="custom">

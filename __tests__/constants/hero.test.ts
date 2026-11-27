@@ -11,7 +11,7 @@ describe('Hero Content Constants', () => {
     it('should have a title property', () => {
       expect(HERO_CONTENT).toHaveProperty('title');
       expect(typeof HERO_CONTENT.title).toBe('string');
-      expect(HERO_CONTENT.title).toBe('Frontend Developer & Network Engineer');
+      expect(HERO_CONTENT.title).toBe('Frontend Developer | Telecom Engineer');
     });
 
     it('should have a description property', () => {

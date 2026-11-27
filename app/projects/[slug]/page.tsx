@@ -121,10 +121,10 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
         </CardContent>
       </Card>
 
-      {/* Why This Project Matters */}
+      {/* How I built it */}
       <Card className="bg-background border-border rounded-xl shadow-sm">
         <CardHeader>
-          <CardTitle className="text-xl">🏆 Why This Project Matters</CardTitle>
+          <CardTitle className="text-xl">🏆 How I Built It</CardTitle>
         </CardHeader>
         <CardContent className="text-muted-foreground">{whyItMatters}</CardContent>
       </Card>

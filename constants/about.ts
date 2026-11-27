@@ -1,5 +1,4 @@
 import { getAllProjects } from '@/constants/projects';
-import { getSkillCount } from '@/constants/skills';
 
 const experienceYears = 7;
 
@@ -37,10 +36,6 @@ export const ABOUT_STATS = [
   {
     value: `${getAllProjects().length}`,
     label: 'Projects Built',
-  },
-  {
-    value: `${getSkillCount()}+`,
-    label: 'Technologies Used',
   },
 ] as const;
 
